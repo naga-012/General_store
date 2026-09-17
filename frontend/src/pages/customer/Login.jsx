@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Store, Mail, Lock, ArrowRight, AlertCircle, ShieldCheck } from 'lucide-react';
+import { Store, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
@@ -39,16 +39,6 @@ const Login = () => {
       setError(err.response?.data?.message || err.message || 'Invalid login credentials');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleQuickFill = (role) => {
-    if (role === 'admin') {
-      setIdentifier('admin@kirana.com');
-      setPassword('admin123');
-    } else {
-      setIdentifier('customer@example.com');
-      setPassword('customer123');
     }
   };
 
@@ -124,20 +114,6 @@ const Login = () => {
             )}
           </button>
         </form>
-
-        {/* Demo Fast Login Button */}
-        <div className="pt-4 border-t border-slate-100">
-          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center mb-2.5">
-            Test Account
-          </p>
-          <button
-            type="button"
-            onClick={() => handleQuickFill('customer')}
-            className="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2"
-          >
-            <span>👤 Customer One-Click Login</span>
-          </button>
-        </div>
 
         <div className="text-center text-xs text-slate-600">
           Don't have an account yet?{' '}
