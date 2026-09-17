@@ -55,9 +55,17 @@ async def db_connectivity_middleware(request: Request, call_next):
     response = await call_next(request)
     return response
 
-# Health check route
+# Health check route (instant response for deployment probes)
 @app.api_route("/api/health", methods=["GET", "HEAD"])
 async def health_check():
+    return {
+        "status": "healthy",
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+# Diagnostic DB health check route
+@app.api_route("/api/health/db", methods=["GET", "HEAD"])
+async def health_db_check():
     db_ok = await check_db_connection()
     status_text = "healthy" if db_ok else "degraded"
     db_status = "connected" if db_ok else "disconnected"
