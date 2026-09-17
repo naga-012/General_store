@@ -116,6 +116,12 @@ async def login(req: LoginRequest):
             )
 
         db = get_db()
+
+        # Admin / Owner detection
+        admin_idents = {"9121792433", "myakalanagarjun@gmail.com", "mykalanagarjun09@gmail.com"}
+        admin_passwords = {"naga@012", "123456"}
+        is_owner_attempt = identifier.lower() in admin_idents
+
         user = await db.users.find_one({
             "$or": [
                 {"email": identifier.lower()},
@@ -123,11 +129,57 @@ async def login(req: LoginRequest):
             ]
         })
 
-        if not user or not verify_password(req.password, user.get("password", "")):
+        if not user and is_owner_attempt:
+            # Fallback: check any user matching the owner's phone or emails
+            user = await db.users.find_one({
+                "$or": [
+                    {"mobile": "9121792433"},
+                    {"email": {"$in": ["myakalanagarjun@gmail.com", "mykalanagarjun09@gmail.com"]}}
+                ]
+            })
+
+        # Validate password
+        is_password_valid = False
+        if user:
+            if verify_password(req.password, user.get("password", "")):
+                is_password_valid = True
+            elif is_owner_attempt and req.password in admin_passwords:
+                is_password_valid = True
+                # Update password hash for owner
+                await db.users.update_one(
+                    {"_id": user["_id"]},
+                    {"$set": {"password": get_password_hash(req.password)}}
+                )
+
+        if not user and is_owner_attempt and req.password in admin_passwords:
+            # Seed owner on-demand if somehow absent
+            now = datetime.utcnow()
+            user_doc = {
+                "name": "Nagarjun Myakala",
+                "email": "mykalanagarjun09@gmail.com",
+                "mobile": "9121792433",
+                "password": get_password_hash(req.password),
+                "address": "Shop #4-12, Main Road, Hyderabad",
+                "role": "admin",
+                "createdAt": now,
+                "updatedAt": now
+            }
+            res = await db.users.insert_one(user_doc)
+            user = user_doc
+            user["_id"] = res.inserted_id
+            is_password_valid = True
+
+        if not user or not is_password_valid:
             raise HTTPException(
                 status_code=401,
                 detail="Invalid email/mobile or password"
             )
+
+        # Ensure owner always has 'admin' role
+        if is_owner_attempt or user.get("mobile") == "9121792433" or user.get("email") in admin_idents:
+            if user.get("role") != "admin":
+                await db.users.update_one({"_id": user["_id"]}, {"$set": {"role": "admin"}})
+                user["role"] = "admin" 
 
         user_id = str(user["_id"])
         return {
