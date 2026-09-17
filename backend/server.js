@@ -68,7 +68,25 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Health check route
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+  const mongoose = require('mongoose');
+  const dbConnected = mongoose.connection.readyState === 1;
+  res.status(dbConnected ? 200 : 503).json({
+    status: dbConnected ? 'healthy' : 'degraded',
+    database: dbConnected ? 'connected' : 'disconnected',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Database connectivity check middleware
+app.use('/api', (req, res, next) => {
+  const mongoose = require('mongoose');
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(503).json({
+      success: false,
+      message: 'Database is not connected. Please verify that MONGODB_URI is set in Render environment variables and that MongoDB Atlas allows access from 0.0.0.0/0.',
+    });
+  }
+  next();
 });
 
 // API Routes

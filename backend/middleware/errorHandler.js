@@ -22,6 +22,11 @@ const errorHandler = (err, req, res, next) => {
       .join(', ');
   }
 
+  if (err.message && err.message.includes('buffering timed out')) {
+    statusCode = 503;
+    message = 'Database connection timed out. Please configure MONGODB_URI in Render environment variables and whitelist IP 0.0.0.0/0 in MongoDB Atlas.';
+  }
+
   res.status(statusCode).json({
     success: false,
     message,
