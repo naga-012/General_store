@@ -97,6 +97,23 @@ async def root():
         "docs": "/docs"
     }
 
+from utils.seeder import auto_seed_catalog
+
+@app.on_event("startup")
+async def startup_event():
+    try:
+        db_ok, _ = await check_db_connection()
+        if db_ok:
+            await auto_seed_catalog()
+    except Exception as e:
+        print(f"Startup auto-seed warning: {e}")
+
+# Seed catalog endpoint (can be triggered anytime to populate products)
+@app.api_route("/api/admin/seed-catalog", methods=["GET", "POST"])
+async def seed_catalog_endpoint():
+    res = await auto_seed_catalog()
+    return res
+
 # Include API Routers
 app.include_router(auth.router)
 app.include_router(products.router)
