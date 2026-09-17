@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from fastapi import APIRouter, HTTPException, Depends, status, Query
 from pydantic import BaseModel
 from typing import Optional, List, Any
@@ -181,7 +181,17 @@ async def create_order(
 async def get_my_orders(current_user: dict = Depends(get_current_user)):
     db = get_db()
     cust_id = to_object_id(current_user["_id"])
-    cursor = db.orders.find({"customer": cust_id}).sort("createdAt", -1)
+    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    query = {
+        "customer": cust_id,
+        "$or": [
+            {"orderStatus": {"$ne": "COMPLETED"}},
+            {"completedAt": {"$gte": seven_days_ago}},
+            {"updatedAt": {"$gte": seven_days_ago}},
+            {"createdAt": {"$gte": seven_days_ago}}
+        ]
+    }
+    cursor = db.orders.find(query).sort("createdAt", -1)
     orders = await cursor.to_list(length=200)
     serialized = serialize_doc(orders)
 
@@ -209,6 +219,13 @@ async def get_admin_orders(
         elif status == "packed":
             query["orderStatus"] = {"$in": ["PACKED", "READY_FOR_PICKUP"]}
         elif status == "completed":
+            seven_days_ago = datetime.utcnow() - timedelta(days=7)
+            query["orderStatus"] = {"$in": ["COMPLETED", "DELIVERED"]}
+            query["$or"] = [
+                {"completedAt": {"$gte": seven_days_ago}},
+                {"updatedAt": {"$gte": seven_days_ago}},
+                {"createdAt": {"$gte": seven_days_ago}}
+            ]
             query["orderStatus"] = "COMPLETED"
         elif status == "rejected":
             query["orderStatus"] = "REJECTED"
@@ -375,6 +392,7 @@ async def update_order_status(
     if new_status == "COMPLETED":
         updates["paymentStatus"] = "PAID"
         updates["isStockDeducted"] = True
+        updates["completedAt"] = now
     if req.rejectionReason:
         updates["rejectionReason"] = req.rejectionReason
 
