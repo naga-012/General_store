@@ -25,6 +25,7 @@ class CreateOrderRequest(BaseModel):
     items: List[OrderItemInput]
     customerAddress: Optional[str] = None
     customerMobile: Optional[str] = None
+    googleLocation: Optional[str] = None
     notes: Optional[str] = None
     orderType: Optional[str] = "Pickup from Shop"
 
@@ -101,6 +102,7 @@ async def create_order(
         "customerName": current_user.get("name", ""),
         "customerMobile": cust_mobile,
         "customerAddress": cust_address,
+        "googleLocation": (req.googleLocation or "").strip(),
         "items": validated_items,
         "subtotal": subtotal,
         "deliveryFee": delivery_fee,

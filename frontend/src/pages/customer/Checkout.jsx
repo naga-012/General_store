@@ -11,6 +11,9 @@ import {
   ArrowLeft,
   Package,
   Bike,
+  Navigation,
+  ExternalLink,
+  Loader2,
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
@@ -32,6 +35,9 @@ const Checkout = () => {
   const [customerName, setCustomerName] = useState(user?.name || '');
   const [customerMobile, setCustomerMobile] = useState(user?.mobile || '');
   const [customerAddress, setCustomerAddress] = useState(user?.address || '');
+  const [googleLocation, setGoogleLocation] = useState('');
+  const [detectingLocation, setDetectingLocation] = useState(false);
+  const [locationSuccess, setLocationSuccess] = useState('');
   const [pickupNotes, setPickupNotes] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -40,6 +46,35 @@ const Checkout = () => {
     navigate('/cart');
     return null;
   }
+
+  const handleDetectLocation = () => {
+    if (!navigator.geolocation) {
+      setError('Geolocation is not supported by your browser.');
+      return;
+    }
+    setDetectingLocation(true);
+    setLocationSuccess('');
+    setError('');
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        const mapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        setGoogleLocation(mapsUrl);
+        setLocationSuccess(`Location pinned: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+        if (!customerAddress.trim()) {
+          setCustomerAddress(`GPS Pinpoint: ${latitude.toFixed(5)}, ${longitude.toFixed(5)}`);
+        }
+        setDetectingLocation(false);
+      },
+      (err) => {
+        console.warn('Geolocation error:', err);
+        setError('Could not access GPS. Please allow location permissions or paste your Google Maps link.');
+        setDetectingLocation(false);
+      },
+      { enableHighAccuracy: true, timeout: 12000 }
+    );
+  };
 
   const handleConfirmOrder = async (e) => {
     e.preventDefault();
@@ -69,6 +104,7 @@ const Checkout = () => {
         orderType: deliveryOption === 'delivery' ? 'Home Delivery' : 'Pickup from Shop',
         customerAddress: deliveryOption === 'delivery' ? customerAddress.trim() : 'Store Counter Pickup',
         customerMobile: customerMobile.trim(),
+        googleLocation: googleLocation.trim(),
         notes: pickupNotes.trim(),
       };
 
@@ -242,6 +278,72 @@ const Checkout = () => {
                 placeholder={deliveryOption === 'delivery' ? 'Enter full delivery address in Domalakunta / nearby' : 'House No, Colony or Street name'}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
+            </div>
+
+            {/* Google Location / GPS Pinpoint Section */}
+            <div className="sm:col-span-2 bg-emerald-50/40 border border-emerald-200/80 rounded-2xl p-4 sm:p-5 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div>
+                  <div className="flex items-center gap-1.5 text-xs font-black text-slate-900 uppercase tracking-wider">
+                    <MapPin className="w-4 h-4 text-emerald-600 shrink-0" />
+                    Google Location / Pinpoint (Maps GPS)
+                  </div>
+                  <p className="text-[11px] text-slate-500 mt-0.5">
+                    Pin your exact house location so the store delivery person can navigate via Google Maps
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleDetectLocation}
+                  disabled={detectingLocation}
+                  className="inline-flex items-center justify-center gap-2 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-600/20 transition shrink-0 disabled:opacity-50"
+                >
+                  {detectingLocation ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      Detecting GPS...
+                    </>
+                  ) : (
+                    <>
+                      <Navigation className="w-3.5 h-3.5" />
+                      Use My Current Location
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="relative">
+                <input
+                  type="text"
+                  value={googleLocation}
+                  onChange={(e) => setGoogleLocation(e.target.value)}
+                  placeholder="Click 'Use My Current Location' above or paste Google Maps link"
+                  className="w-full bg-white border border-emerald-200 rounded-xl p-3 pl-9 text-xs text-slate-900 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <MapPin className="w-4 h-4 text-emerald-500 absolute left-3 top-3.5" />
+              </div>
+
+              {locationSuccess && (
+                <div className="text-[11px] text-emerald-700 font-bold flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  {locationSuccess}
+                </div>
+              )}
+
+              {googleLocation && (
+                <div className="flex items-center gap-2 pt-1">
+                  <a
+                    href={googleLocation.startsWith('http') ? googleLocation : `https://www.google.com/maps?q=${encodeURIComponent(googleLocation)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:underline bg-white border border-emerald-200 px-3 py-1.5 rounded-lg shadow-sm transition"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-emerald-600" />
+                    Open & Verify Pin in Google Maps ↗
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="sm:col-span-2">

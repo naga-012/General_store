@@ -237,6 +237,40 @@ const MyOrders = () => {
                 </div>
               )}
 
+              {/* Delivery Address & Google Maps Location details */}
+              <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/70 text-xs space-y-2">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                      {selectedOrder.orderType === 'Home Delivery' ? 'Delivery Address' : 'Pickup Type'}
+                    </span>
+                    <p className="font-semibold text-slate-800 text-xs mt-0.5">
+                      {selectedOrder.customerAddress || 'Store Counter Pickup'}
+                    </p>
+                  </div>
+                  <span className="font-bold text-[11px] px-2.5 py-1 rounded-full bg-slate-200/60 text-slate-700">
+                    {selectedOrder.orderType || 'Pickup'}
+                  </span>
+                </div>
+
+                {selectedOrder.googleLocation && (
+                  <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between gap-2">
+                    <span className="text-slate-600 font-medium text-[11px] flex items-center gap-1">
+                      📍 Google Location Pinpoint:
+                    </span>
+                    <a
+                      href={selectedOrder.googleLocation.startsWith('http') ? selectedOrder.googleLocation : `https://www.google.com/maps?q=${encodeURIComponent(selectedOrder.googleLocation)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-lg transition text-[11px]"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-emerald-600" />
+                      Open in Google Maps ↗
+                    </a>
+                  </div>
+                )}
+              </div>
+
               {/* Visual Order Tracking Timeline */}
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
