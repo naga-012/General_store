@@ -1,0 +1,16 @@
+{
+  "name": "kirana-general-store",
+  "version": "1.0.0",
+  "description": "General Store / Kirana Shop Management & Customer Ordering Web App",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "server": "cd backend && node server.js",
+    "dev:server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently -k \"npm run dev:server\" \"npm run client\"",
+    "seed": "cd backend && node utils/seedData.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
