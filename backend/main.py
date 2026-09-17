@@ -38,15 +38,20 @@ app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 # Fast diagnostic DB check middleware for API requests
 @app.middleware("http")
 async def db_connectivity_middleware(request: Request, call_next):
-    if request.method == "HEAD":
+    if request.method in ("HEAD", "OPTIONS"):
         return await call_next(request)
     path = request.url.path
-    if path.startswith("/api") and path != "/api/health":
+    if path.startswith("/api") and path not in ("/api/health", "/api/health/db"):
         # Ensure database is reachable
         db_ok = await check_db_connection()
         if not db_ok:
+            origin = request.headers.get("origin", "*")
             return JSONResponse(
                 status_code=503,
+                headers={
+                    "Access-Control-Allow-Origin": origin,
+                    "Access-Control-Allow-Credentials": "true",
+                },
                 content={
                     "success": False,
                     "message": "Database is not connected. Please verify that MONGODB_URI is set in Render environment variables and that MongoDB Atlas allows access from 0.0.0.0/0."
