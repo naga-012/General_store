@@ -32,6 +32,6 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        sync: false
+        value: https://kirana-backend-mb03.onrender.com/api
       - key: VITE_SOCKET_URL
-        sync: false
+        value: https://kirana-backend-mb03.onrender.com

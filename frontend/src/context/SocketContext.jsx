@@ -18,7 +18,10 @@ export const SocketProvider = ({ children }) => {
       if (socketEnv) return socketEnv.replace(/\/+$/, '');
       const apiEnv = import.meta.env.VITE_API_URL;
       if (apiEnv) return apiEnv.replace(/\/api\/?$/, '');
-      return window.location.origin;
+      if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+        return 'http://localhost:5000';
+      }
+      return 'https://kirana-backend-mb03.onrender.com';
     };
 
     // Initialize socket connection
