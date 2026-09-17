@@ -1,7 +1,7 @@
 [
   {
-    "name": "Sona Masoori Rice (à°°à±ˆà°¸à± / à°¸à±‹à°¨à°¾ à°®à°¸à±‚à°°à°¿ à°¬à°¿à°¯à±à°¯à°‚)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Sona Masoori Rice (రైస్ / సోనా మసూరి బియ్యం)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Aged premium Telangana Sona Masoori raw rice, lightweight, aromatic, and easy to digest for daily meals.",
     "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&auto=format&fit=crop&q=80",
     "brand": "BBL Royal",
@@ -34,8 +34,8 @@
     ]
   },
   {
-    "name": "India Gate Basmati Rice / Biryani Rice (à°¬à°¿à°°à±à°¯à°¾à°¨à±€ à°¬à°¿à°¯à±à°¯à°‚)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "India Gate Basmati Rice / Biryani Rice (బిర్యానీ బియ్యం)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Extra long grain aged Basmati Rice, ideal for Hyderabadi Dum Biryani and Pulao.",
     "image": "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=600&auto=format&fit=crop&q=80",
     "brand": "India Gate",
@@ -61,8 +61,8 @@
     ]
   },
   {
-    "name": "Aashirvaad Superior MP Sharbati Whole Wheat Flour / Atta (à°—à±‹à°§à±à°® à°ªà°¿à°‚à°¡à°¿)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Aashirvaad Superior MP Sharbati Whole Wheat Flour / Atta (గోధుమ పిండి)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "100% pure whole wheat stone-ground chakki fresh atta for extra soft rotis and phulkas.",
     "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80",
     "brand": "Aashirvaad",
@@ -95,8 +95,8 @@
     ]
   },
   {
-    "name": "Refined Wheat Flour / Maida (à°®à±ˆà°¦à°¾ à°ªà°¿à°‚à°¡à°¿)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Refined Wheat Flour / Maida (మైదా పిండి)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Super fine premium Maida for samosas, puris, parathas, and bakery items.",
     "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80",
     "brand": "Popular",
@@ -121,8 +121,8 @@
     ]
   },
   {
-    "name": "Bombay Rava / Upma Sooji (à°¬à±Šà°‚à°¬à°¾à°¯à°¿ à°°à°µà±à°µ / à°‰à°ªà±à°®à°¾ à°°à°µà±à°µ)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Bombay Rava / Upma Sooji (బొంబాయి రవ్వ / ఉప్మా రవ్వ)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Roasted granulated wheat semolina for delicious Upma, Kesari Bath, and Rava Dosa.",
     "image": "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=600&auto=format&fit=crop&q=80",
     "brand": "Sri Lalitha",
@@ -147,8 +147,8 @@
     ]
   },
   {
-    "name": "Thick Poha / Beaten Rice / Atukulu (à°¦à±Šà°¡à±à°¡à± à°…à°Ÿà±à°•à±à°²à±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Thick Poha / Beaten Rice / Atukulu (దొడ్డు అటుకులు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Crispy thick flattened rice for tasty breakfast Atukula Upma / Poha and snacks.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Laxmi",
@@ -173,8 +173,8 @@
     ]
   },
   {
-    "name": "Premium Toor Dal / Kandi Pappu (à°•à°‚à°¦à°¿à°ªà°ªà±à°ªà±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Premium Toor Dal / Kandi Pappu (కందిపప్పు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Unpolished golden yellow Toor dal, rich in protein, perfect for authentic Andhra & Telangana Pappu and Sambar.",
     "image": "https://images.unsplash.com/photo-1585992639967-33630f576e25?w=600&auto=format&fit=crop&q=80",
     "brand": "Farmer Special",
@@ -206,8 +206,8 @@
     ]
   },
   {
-    "name": "Yellow Moong Dal / Pesara Pappu (à°ªà±†à°¸à°°à°ªà°ªà±à°ªà±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Yellow Moong Dal / Pesara Pappu (పెసరపప్పు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Easily digestible split yellow moong dal, quick cooking for dal tadka and khichdi.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
     "brand": "Natural Kirana",
@@ -231,8 +231,8 @@
     ]
   },
   {
-    "name": "Whole Urad Dal Gundu / Minapa Pappu (à°®à°¿à°¨à°ª à°—à±à°‚à°¡à±à°²à±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Whole Urad Dal Gundu / Minapa Pappu (మినప గుండ్లు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Double polished clean white whole urad dal for fluffy idli and crispy golden dosa batter.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Sri Krishna",
@@ -258,8 +258,8 @@
     ]
   },
   {
-    "name": "Chana Dal / Bengal Gram / Senaga Pappu (à°¶à°¨à°—à°ªà°ªà±à°ªà±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Chana Dal / Bengal Gram / Senaga Pappu (శనగపప్పు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Nutritious unpolished chana dal for daily curries, dal fry, and tadka tempering.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Farmer Special",
@@ -283,8 +283,8 @@
     ]
   },
   {
-    "name": "Red Masoor Dal / Split Orange Lentils (à°Žà°°à±à°° à°•à°‚à°¦à°¿à°ªà°ªà±à°ªà±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Red Masoor Dal / Split Orange Lentils (ఎర్ర కందిపప్పు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Quick boiling split red masoor dal for creamy everyday curries and soups.",
     "image": "https://images.unsplash.com/photo-1585992639967-33630f576e25?w=600&auto=format&fit=crop&q=80",
     "brand": "Telangana Fresh",
@@ -308,8 +308,8 @@
     ]
   },
   {
-    "name": "Brown Kala Chana / Nalla Senagalu (à°¨à°²à±à°² à°¶à°¨à°—à°²à±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Brown Kala Chana / Nalla Senagalu (నల్ల శనగలు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Fiber-rich desi brown chickpeas for wholesome curry, sundal, and sprouted salads.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Farmer Special",
@@ -334,8 +334,8 @@
     ]
   },
   {
-    "name": "Kabuli Chana / White Chickpeas (à°•à°¾à°¬à±‚à°²à±€ à°¶à°¨à°—à°²à±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Kabuli Chana / White Chickpeas (కాబూలీ శనగలు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Large grain premium white chickpeas for Punjabi Chole and Hyderabad curry.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Royal",
@@ -359,8 +359,8 @@
     ]
   },
   {
-    "name": "Chitra Rajma / Red Kidney Beans (à°šà°¿à°¤à±à°° à°°à°¾à°œà±à°®à°¾)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Chitra Rajma / Red Kidney Beans (చిత్ర రాజ్మా)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Tender specked Rajma beans, cooks soft for rich creamy restaurant-style Rajma Masala.",
     "image": "https://images.unsplash.com/photo-1585992639967-33630f576e25?w=600&auto=format&fit=crop&q=80",
     "brand": "Himalayan Select",
@@ -384,8 +384,8 @@
     ]
   },
   {
-    "name": "Madhur Pure & Hygienic Refined Sugar (à°ªà°‚à°šà°¦à°¾à°°)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Madhur Pure & Hygienic Refined Sugar (పంచదార)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Sulphur-free sparkling white crystal sugar for chai, coffee, and traditional sweets.",
     "image": "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?w=600&auto=format&fit=crop&q=80",
     "brand": "Madhur",
@@ -409,8 +409,8 @@
     ]
   },
   {
-    "name": "Tata Vacuum Evaporated Iodized Salt (à°Ÿà°¾à°Ÿà°¾ à°‰à°ªà±à°ªà±)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Tata Vacuum Evaporated Iodized Salt (టాటా ఉప్పు)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "India's most trusted vacuum-evaporated iodized cooking salt.",
     "image": "https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?w=600&auto=format&fit=crop&q=80",
     "brand": "Tata Salt",
@@ -429,8 +429,8 @@
     ]
   },
   {
-    "name": "Pure Natural Cane Jaggery / Bellam (à°¸à±à°µà°šà±à°›à°®à±ˆà°¨ à°¬à±†à°²à±à°²à°‚)",
-    "category": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Pure Natural Cane Jaggery / Bellam (స్వచ్ఛమైన బెల్లం)",
+    "category": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "description": "Unbleached natural golden brown jaggery blocks, sweet, rich in iron, for payasam and daily use.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
     "brand": "Anakapalli Gold",
@@ -455,8 +455,8 @@
     ]
   },
   {
-    "name": "Nizamabad Salem Turmeric Powder / Pasupu (à°ªà°¸à±à°ªà± à°ªà±Šà°¡à°¿)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Nizamabad Salem Turmeric Powder / Pasupu (పసుపు పొడి)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "100% pure bright yellow turmeric with high natural curcumin content from Nizamabad.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
     "brand": "Priya / Farm Fresh",
@@ -487,8 +487,8 @@
     ]
   },
   {
-    "name": "Warangal Guntur Teja Mirchi Podi / Red Chilli Powder (à°•à°¾à°°à°‚ à°ªà±Šà°¡à°¿)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Warangal Guntur Teja Mirchi Podi / Red Chilli Powder (కారం పొడి)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Authentic fiery red chilli powder with rich color and punchy spice for Telangana curries.",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "brand": "Priya / Telangana Special",
@@ -521,8 +521,8 @@
     ]
   },
   {
-    "name": "Roasted Coriander Powder / Dhaniya Podi (à°§à°¨à°¿à°¯à°¾à°² à°ªà±Šà°¡à°¿)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Roasted Coriander Powder / Dhaniya Podi (ధనియాల పొడి)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Slow roasted aromatic whole coriander seed powder for gravies and fry curries.",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "brand": "Everest",
@@ -547,8 +547,8 @@
     ]
   },
   {
-    "name": "Everest Super Garam Masala (à°—à°°à°‚ à°®à°¸à°¾à°²à°¾)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Everest Super Garam Masala (గరం మసాలా)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Finely blended authentic Indian spices to enrich veg and non-veg curries with royal aroma.",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "brand": "Everest",
@@ -573,8 +573,8 @@
     ]
   },
   {
-    "name": "Cumin Seeds / Jeera (à°œà±€à°²à°•à°°à±à°°)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Cumin Seeds / Jeera (జీలకర్ర)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Strong, fragrant whole cumin seeds for tempering, digestion, and tadka.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
     "brand": "Shree Gold",
@@ -605,8 +605,8 @@
     ]
   },
   {
-    "name": "Mustard Seeds / Rai / Avalu (à°†à°µà°¾à°²à±)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Mustard Seeds / Rai / Avalu (ఆవాలు)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Small black aromatic mustard seeds for traditional popu and pickle tempering.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
     "brand": "Shree Gold",
@@ -637,8 +637,8 @@
     ]
   },
   {
-    "name": "Whole Black Pepper / Miriyalu (à°®à°¿à°°à°¿à°¯à°¾à°²à±)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Whole Black Pepper / Miriyalu (మిరియాలు)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Malabar bold whole black peppercorns for rasam, pongal, and seasoning.",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "brand": "Spice Club",
@@ -662,8 +662,8 @@
     ]
   },
   {
-    "name": "Fresh Ginger-Garlic Paste / Allam Vellulli (à°…à°²à±à°²à°‚ à°µà±†à°²à±à°²à±à°²à±à°²à°¿ à°ªà±‡à°¸à±à°Ÿà±)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Fresh Ginger-Garlic Paste / Allam Vellulli (అల్లం వెల్లుల్లి పేస్ట్)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Thick, preservative-free freshly ground ginger and garlic paste for curries and biryanis.",
     "image": "https://images.unsplash.com/photo-1589927986086-3d10fb556977?w=600&auto=format&fit=crop&q=80",
     "brand": "Mother's Recipe / Priya",
@@ -687,8 +687,8 @@
     ]
   },
   {
-    "name": "MTR Telangana Sambar Powder (à°¸à°¾à°‚à°¬à°¾à°°à± à°ªà±Šà°¡à°¿)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "MTR Telangana Sambar Powder (సాంబార్ పొడి)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Authentic South Indian roasted spice blend for fragrant, lip-smacking vegetable sambar.",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "brand": "MTR",
@@ -712,8 +712,8 @@
     ]
   },
   {
-    "name": "Everest Shahi Biryani Masala (à°¬à°¿à°°à±à°¯à°¾à°¨à±€ à°®à°¸à°¾à°²à°¾)",
-    "category": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Everest Shahi Biryani Masala (బిర్యానీ మసాలా)",
+    "category": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "description": "Exquisite aromatic whole spice blend crafted for legendary Hyderabadi Biryani.",
     "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
     "brand": "Everest",
@@ -738,8 +738,8 @@
     ]
   },
   {
-    "name": "Heritage Toned Fresh Milk / Paalu (à°¹à±†à°°à°¿à°Ÿà±‡à°œà± à°ªà°¾à°²à±)",
-    "category": "Dairy, Eggs & Bakery (à°ªà°¾à°²à±, à°ªà±†à°°à±à°—à±, à°—à±à°¡à±à°²à± & à°¬à±à°°à±†à°¡à±)",
+    "name": "Heritage Toned Fresh Milk / Paalu (హెరిటేజ్ పాలు)",
+    "category": "Dairy, Eggs & Bakery (పాలు, పెరుగు, గుడ్లు & బ్రెడ్)",
     "description": "Daily fresh pasteurized homogenized toned milk rich in calcium and protein.",
     "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&auto=format&fit=crop&q=80",
     "brand": "Heritage",
@@ -765,8 +765,8 @@
     ]
   },
   {
-    "name": "Heritage Fresh Thick Curd / Perugu (à°ªà±†à°°à±à°—à±)",
-    "category": "Dairy, Eggs & Bakery (à°ªà°¾à°²à±, à°ªà±†à°°à±à°—à±, à°—à±à°¡à±à°²à± & à°¬à±à°°à±†à°¡à±)",
+    "name": "Heritage Fresh Thick Curd / Perugu (పెరుగు)",
+    "category": "Dairy, Eggs & Bakery (పాలు, పెరుగు, గుడ్లు & బ్రెడ్)",
     "description": "Creamy, thick traditional set dahi / curd prepared with high quality milk.",
     "image": "https://images.unsplash.com/photo-1571212515416-fef01fc43637?w=600&auto=format&fit=crop&q=80",
     "brand": "Heritage",
@@ -791,8 +791,8 @@
     ]
   },
   {
-    "name": "Farm Fresh White Table Eggs / Guddu (à°•à±‹à°¡à°¿ à°—à±à°¡à±à°²à±)",
-    "category": "Dairy, Eggs & Bakery (à°ªà°¾à°²à±, à°ªà±†à°°à±à°—à±, à°—à±à°¡à±à°²à± & à°¬à±à°°à±†à°¡à±)",
+    "name": "Farm Fresh White Table Eggs / Guddu (కోడి గుడ్లు)",
+    "category": "Dairy, Eggs & Bakery (పాలు, పెరుగు, గుడ్లు & బ్రెడ్)",
     "description": "Daily fresh sanitized farm eggs, rich source of natural protein.",
     "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=600&auto=format&fit=crop&q=80",
     "brand": "Farm Fresh",
@@ -824,8 +824,8 @@
     ]
   },
   {
-    "name": "Britannia Daily Fresh White Bread (à°¬à±à°°à±†à°¡à±)",
-    "category": "Dairy, Eggs & Bakery (à°ªà°¾à°²à±, à°ªà±†à°°à±à°—à±, à°—à±à°¡à±à°²à± & à°¬à±à°°à±†à°¡à±)",
+    "name": "Britannia Daily Fresh White Bread (బ్రెడ్)",
+    "category": "Dairy, Eggs & Bakery (పాలు, పెరుగు, గుడ్లు & బ్రెడ్)",
     "description": "Soft and oven-fresh enriched white sandwich bread slices for toast and sandwiches.",
     "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80",
     "brand": "Britannia",
@@ -844,8 +844,8 @@
     ]
   },
   {
-    "name": "Parle-G Original Gluco Biscuits (à°ªà°¾à°°à±à°²à±‡-à°œà°¿ à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à±)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Parle-G Original Gluco Biscuits (పార్లే-జి బిస్కెట్లు)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "India's favourite energy glucose biscuits, best accompaniment for hot tea.",
     "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop&q=80",
     "brand": "Parle",
@@ -870,8 +870,8 @@
     ]
   },
   {
-    "name": "Britannia Good Day Butter Cookies (à°—à±à°¡à± à°¡à±‡ à°•à±à°•à±€à°¸à±)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Britannia Good Day Butter Cookies (గుడ్ డే కుకీస్)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "Rich buttery crunchy cookies with signature smile designs.",
     "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&auto=format&fit=crop&q=80",
     "brand": "Britannia",
@@ -896,8 +896,8 @@
     ]
   },
   {
-    "name": "Lay's India's Magic Masala Potato Chips (à°²à±‡à°¸à± à°šà°¿à°ªà±à°¸à±)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Lay's India's Magic Masala Potato Chips (లేస్ చిప్స్)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "Crispy ridged potato chips seasoned with authentic Indian spicy masala mix.",
     "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=600&auto=format&fit=crop&q=80",
     "brand": "Lay's",
@@ -923,8 +923,8 @@
     ]
   },
   {
-    "name": "Telangana Special Hot Spicy Mixture (à°®à°¿à°•à±à°¸à±à°šà°°à± / à°•à°¾à°°à°ªà±à°ªà±‚à°¸)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Telangana Special Hot Spicy Mixture (మిక్స్చర్ / కారప్పూస)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "Crunchy hot mixture with sev, roasted peanuts, curry leaves, and garlic seasoning.",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "brand": "Manikanta Sweets & Bakery",
@@ -949,8 +949,8 @@
     ]
   },
   {
-    "name": "Thums Up Charged Soft Drink (à°¥à°®à±à°¸à± à°…à°ªà± à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Thums Up Charged Soft Drink (థమ్స్ అప్ కూల్ డ్రింక్)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "Taste the Thunder! Strong fizz cola soft drink loved across Telangana.",
     "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop&q=80",
     "brand": "Thums Up",
@@ -976,8 +976,8 @@
     ]
   },
   {
-    "name": "Maaza Real Mango Pulp Juice (à°®à°¾à°œà°¾ à°®à°¾à°®à°¿à°¡à°¿ à°ªà°‚à°¡à±à°² à°°à°¸à°‚)",
-    "category": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Maaza Real Mango Pulp Juice (మాజా మామిడి పండ్ల రసం)",
+    "category": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "description": "Delicious thick Alphonso mango pulp beverage for refreshing hydration.",
     "image": "https://images.unsplash.com/photo-1546173159-315724a31696?w=600&auto=format&fit=crop&q=80",
     "brand": "Maaza",
@@ -1002,8 +1002,8 @@
     ]
   },
   {
-    "name": "Dettol Original Germ Protection Bath Soap (à°¡à±†à°Ÿà±à°Ÿà°¾à°²à± à°¸à°¬à±à°¬à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Dettol Original Germ Protection Bath Soap (డెట్టాల్ సబ్బు)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Trusted 100% germ defense bath soap keeping skin fresh, healthy and clean.",
     "image": "https://images.unsplash.com/photo-1607006314646-fd7517c2f1f0?w=600&auto=format&fit=crop&q=80",
     "brand": "Dettol",
@@ -1028,8 +1028,8 @@
     ]
   },
   {
-    "name": "Clinic Plus Strong & Long Shampoo (à°•à±à°²à°¿à°¨à°¿à°•à± à°ªà±à°²à°¸à± à°·à°¾à°‚à°ªà±‚)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Clinic Plus Strong & Long Shampoo (క్లినిక్ ప్లస్ షాంపూ)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Milk protein enriched daily hair shampoo for strong, shiny and silky hair.",
     "image": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&auto=format&fit=crop&q=80",
     "brand": "Clinic Plus",
@@ -1053,8 +1053,8 @@
     ]
   },
   {
-    "name": "Dove Daily Shine Hair Conditioner (à°¡à°µà± à°•à°‚à°¡à°¿à°·à°¨à°°à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Dove Daily Shine Hair Conditioner (డవ్ కండిషనర్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Micro-moisture serum conditioner for smooth, frizz-free, manageable hair.",
     "image": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=600&auto=format&fit=crop&q=80",
     "brand": "Dove",
@@ -1073,8 +1073,8 @@
     ]
   },
   {
-    "name": "Colgate Strong Teeth Calcium Toothpaste (à°•à±‹à°²à±à°—à±‡à°Ÿà± à°Ÿà±‚à°¤à± à°ªà±‡à°¸à±à°Ÿà±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Colgate Strong Teeth Calcium Toothpaste (కోల్గేట్ టూత్ పేస్ట్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "With Amino Shakti formula to strengthen teeth and protect against cavities.",
     "image": "https://images.unsplash.com/photo-1559591937-e1032b535492?w=600&auto=format&fit=crop&q=80",
     "brand": "Colgate",
@@ -1099,8 +1099,8 @@
     ]
   },
   {
-    "name": "Oral-B Cavity Defense Toothbrush (à°Ÿà±‚à°¤à± à°¬à±à°°à°·à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Oral-B Cavity Defense Toothbrush (టూత్ బ్రష్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Multi-angle bristles that clean deep between teeth and massage gums.",
     "image": "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?w=600&auto=format&fit=crop&q=80",
     "brand": "Oral-B",
@@ -1124,8 +1124,8 @@
     ]
   },
   {
-    "name": "Himalaya Purifying Neem Face Wash (à°¹à°¿à°®à°¾à°²à°¯ à°«à±‡à°¸à± à°µà°¾à°·à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Himalaya Purifying Neem Face Wash (హిమాలయ ఫేస్ వాష్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Soap-free herbal formulation that removes excess oil and prevents pimples.",
     "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&auto=format&fit=crop&q=80",
     "brand": "Himalaya",
@@ -1150,8 +1150,8 @@
     ]
   },
   {
-    "name": "Parachute 100% Pure Coconut Hair Oil (à°ªà°¾à°°à°¾à°šà±‚à°Ÿà± à°•à±Šà°¬à±à°¬à°°à°¿ à°¨à±‚à°¨à±†)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Parachute 100% Pure Coconut Hair Oil (పారాచూట్ కొబ్బరి నూనె)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Made from sun-dried coconuts, deep root nourishing pure hair oil.",
     "image": "https://images.unsplash.com/photo-1608248597359-00f72f23b7b2?w=600&auto=format&fit=crop&q=80",
     "brand": "Parachute",
@@ -1176,8 +1176,8 @@
     ]
   },
   {
-    "name": "Gillette Classic Shaving Foam & Vector Razor Combo (à°·à±‡à°µà°¿à°‚à°—à± à°«à±‹à°®à± & à°°à±‡à°œà°°à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Gillette Classic Shaving Foam & Vector Razor Combo (షేవింగ్ ఫోమ్ & రేజర్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Extra rich creamy lather for a clean, smooth, irritation-free glide shaving experience.",
     "image": "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&auto=format&fit=crop&q=80",
     "brand": "Gillette",
@@ -1203,8 +1203,8 @@
     ]
   },
   {
-    "name": "Fogg Marco Long Lasting No Gas Deodorant (à°«à°¾à°—à± à°¡à±†à°¯à±‹à°¡à°°à±†à°‚à°Ÿà±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Fogg Marco Long Lasting No Gas Deodorant (ఫాగ్ డెయోడరెంట్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "100% perfume liquid body spray providing all-day fresh fragrance without gas.",
     "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&auto=format&fit=crop&q=80",
     "brand": "Fogg",
@@ -1223,8 +1223,8 @@
     ]
   },
   {
-    "name": "Lifebuoy Total Germ Protection Liquid Hand Wash (à°²à°¿à°•à±à°µà°¿à°¡à± à°¹à±à°¯à°¾à°‚à°¡à± à°µà°¾à°·à±)",
-    "category": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Lifebuoy Total Germ Protection Liquid Hand Wash (లిక్విడ్ హ్యాండ్ వాష్)",
+    "category": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "description": "Fast active formula that kills 99.9% germs in just 10 seconds.",
     "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80",
     "brand": "Lifebuoy",
@@ -1248,8 +1248,8 @@
     ]
   },
   {
-    "name": "Surf Excel Easy Wash Detergent Powder (à°¸à°°à±à°«à± à°Žà°•à±à°¸à±†à°²à± à°¸à°°à±à°«à± à°ªà±Šà°¡à°¿)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Surf Excel Easy Wash Detergent Powder (సర్ఫ్ ఎక్సెల్ సర్ఫు పొడి)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "Superior stain removal formula for bright, clean, fragrance-filled laundry.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Surf Excel",
@@ -1275,8 +1275,8 @@
     ]
   },
   {
-    "name": "Vim Lemon Dishwash Liquid Gel (à°µà°¿à°®à± à°¡à°¿à°·à± à°µà°¾à°·à± à°²à°¿à°•à±à°µà°¿à°¡à±)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Vim Lemon Dishwash Liquid Gel (విమ్ డిష్ వాష్ లిక్విడ్)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "Concentrated power of 100 lemons to cut through tough grease on vessels instantly.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Vim",
@@ -1301,8 +1301,8 @@
     ]
   },
   {
-    "name": "Lizol Citrus Disinfectant Surface Floor Cleaner (à°²à±ˆà°œà°¾à°²à± à°«à±à°²à±‹à°°à± à°•à±à°²à±€à°¨à°°à±)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Lizol Citrus Disinfectant Surface Floor Cleaner (లైజాల్ ఫ్లోర్ క్లీనర్)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "Kills 99.9% germs, leaves long-lasting pleasant citrus fragrance on tiles and floors.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Lizol",
@@ -1327,8 +1327,8 @@
     ]
   },
   {
-    "name": "Harpic Power Plus 10X Max Clean Toilet Cleaner (à°¹à°¾à°°à±à°ªà°¿à°•à± à°Ÿà°¾à°¯à°¿à°²à±†à°Ÿà± à°•à±à°²à±€à°¨à°°à±)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Harpic Power Plus 10X Max Clean Toilet Cleaner (హార్పిక్ టాయిలెట్ క్లీనర్)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "Deep cleaning thick blue liquid that removes tough stains, limescale and odors.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Harpic",
@@ -1352,8 +1352,8 @@
     ]
   },
   {
-    "name": "Disinfectant Bleaching Powder / Chlorine (à°¬à±à°²à±€à°šà°¿à°‚à°—à± à°ªà±Œà°¡à°°à±)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Disinfectant Bleaching Powder / Chlorine (బ్లీచింగ్ పౌడర్)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "High chlorine disinfectant bleaching powder for drain sanitation and water purification.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Clean Pro",
@@ -1377,8 +1377,8 @@
     ]
   },
   {
-    "name": "Scotch-Brite Heavy Duty Scrub Pad & Sponge (à°¸à±à°•à±à°°à°¬à±à°¬à°°à±à°²à±)",
-    "category": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Scotch-Brite Heavy Duty Scrub Pad & Sponge (స్క్రబ్బర్లు)",
+    "category": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "description": "Durable nylon fibers that clean burned stains on pots, pans, and everyday utensils.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Scotch-Brite",
@@ -1403,8 +1403,8 @@
     ]
   },
   {
-    "name": "Reynolds 045 Fine Carbure Ball Pens (à°°à±†à°¨à°¾à°²à±à°¡à±à°¸à± à°ªà±†à°¨à±à°¨à±à°²à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Reynolds 045 Fine Carbure Ball Pens (రెనాల్డ్స్ పెన్నులు)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Classic laser-smooth blue ballpoint pens for non-smudge everyday school and office writing.",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "brand": "Reynolds",
@@ -1429,8 +1429,8 @@
     ]
   },
   {
-    "name": "Apsara Platinum Extra Dark Pencils (à°…à°ªà±à°¸à°° à°ªà±†à°¨à±à°¸à°¿à°²à±à°¸à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Apsara Platinum Extra Dark Pencils (అప్సర పెన్సిల్స్)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Smooth and dark writing lead pencils with free eraser and point sharpener included.",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "brand": "Apsara",
@@ -1449,8 +1449,8 @@
     ]
   },
   {
-    "name": "Classmate Long Ruled Notebook 192 Pages (à°•à±à°²à°¾à°¸à±â€Œà°®à±‡à°Ÿà± à°¨à±‹à°Ÿà± à°¬à±à°•à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Classmate Long Ruled Notebook 192 Pages (క్లాస్‌మేట్ నోట్ బుక్)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Eco-friendly smooth bright white pages with durable binding for students.",
     "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80",
     "brand": "Classmate",
@@ -1475,8 +1475,8 @@
     ]
   },
   {
-    "name": "Apsara Non-Dust Erasers (à°…à°ªà±à°¸à°° à°°à°¬à±à°¬à°°à±à°²à± / à°Žà°°à±‡à°œà°°à±à°²à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Apsara Non-Dust Erasers (అప్సర రబ్బర్లు / ఎరేజర్లు)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Clean wiping non-dust erasers that do not tear the paper.",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "brand": "Apsara",
@@ -1494,8 +1494,8 @@
     ]
   },
   {
-    "name": "Apsara Long Point Pencil Sharpeners (à°·à°¾à°°à±à°ªà°¨à°°à±à°²à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Apsara Long Point Pencil Sharpeners (షార్పనర్లు)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Scientifically angled anti-rust blades for razor-sharp pencil tips.",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "brand": "Apsara",
@@ -1513,8 +1513,8 @@
     ]
   },
   {
-    "name": "Camlin Whiteboard & Permanent Markers (à°®à°¾à°°à±à°•à°°à± à°ªà±†à°¨à±à°¨à±à°²à±)",
-    "category": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Camlin Whiteboard & Permanent Markers (మార్కర్ పెన్నులు)",
+    "category": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "description": "Bright vivid ink markers for whiteboards, chart papers, and carton labelling.",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "brand": "Camlin",
@@ -1539,8 +1539,8 @@
     ]
   },
   {
-    "name": "Good Knight Gold Flash Mosquito Repellent Machine + Refill (à°¦à±‹à°®à°² à°²à°¿à°•à±à°µà°¿à°¡à±)",
-    "category": "Household & Lighting (à°ªà±‚à°œ & à°—à±ƒà°¹à±‹à°ªà°•à°°à°£à°¾à°²à±)",
+    "name": "Good Knight Gold Flash Mosquito Repellent Machine + Refill (దోమల లిక్విడ్)",
+    "category": "Household & Lighting (పూజ & గృహోపకరణాలు)",
     "description": "Advanced mosquito vaporization technology for malaria & dengue protection all night.",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "brand": "Good Knight",
@@ -1565,8 +1565,8 @@
     ]
   },
   {
-    "name": "Homelites Extra Long Safety Matchboxes (à°…à°—à±à°—à°¿à°ªà±†à°Ÿà±à°Ÿà±†à°²à±)",
-    "category": "Household & Lighting (à°ªà±‚à°œ & à°—à±ƒà°¹à±‹à°ªà°•à°°à°£à°¾à°²à±)",
+    "name": "Homelites Extra Long Safety Matchboxes (అగ్గిపెట్టెలు)",
+    "category": "Household & Lighting (పూజ & గృహోపకరణాలు)",
     "description": "Karborized sticks that light up in one strike without flying sparks.",
     "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&auto=format&fit=crop&q=80",
     "brand": "Homelites",
@@ -1585,8 +1585,8 @@
     ]
   },
   {
-    "name": "Stainless Steel Kitchen Gas Lighter (à°•à°¿à°šà±†à°¨à± à°—à±à°¯à°¾à°¸à± à°²à±ˆà°Ÿà°°à±)",
-    "category": "Household & Lighting (à°ªà±‚à°œ & à°—à±ƒà°¹à±‹à°ªà°•à°°à°£à°¾à°²à±)",
+    "name": "Stainless Steel Kitchen Gas Lighter (కిచెన్ గ్యాస్ లైటర్)",
+    "category": "Household & Lighting (పూజ & గృహోపకరణాలు)",
     "description": "Heavy duty unbreakable stainless steel piezo spark gas stove lighter.",
     "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80",
     "brand": "Crystal",
@@ -1605,8 +1605,8 @@
     ]
   },
   {
-    "name": "Pure White Household Wax Candles (à°®à±ˆà°¨à°ªà± à°•à±Šà°µà±à°µà±Šà°¤à±à°¤à±à°²à±)",
-    "category": "Household & Lighting (à°ªà±‚à°œ & à°—à±ƒà°¹à±‹à°ªà°•à°°à°£à°¾à°²à±)",
+    "name": "Pure White Household Wax Candles (మైనపు కొవ్వొత్తులు)",
+    "category": "Household & Lighting (పూజ & గృహోపకరణాలు)",
     "description": "Smokeless dripless pure paraffin wax candles for emergency lighting and prayer.",
     "image": "https://images.unsplash.com/photo-1603555501671-8f96b3fce8b4?w=600&auto=format&fit=crop&q=80",
     "brand": "Glow Bright",

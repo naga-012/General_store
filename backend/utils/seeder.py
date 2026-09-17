@@ -8,16 +8,29 @@ def generate_slug(name: str) -> str:
     cleaned = re.sub(r'[^a-z0-9]+', '-', name.lower())
     return cleaned.strip('-')
 
-async def auto_seed_catalog():
-    """Seed initial categories, products, and store settings if database is empty"""
+async def auto_seed_catalog(force: bool = False):
+    """Seed initial categories, products, and store settings if database is empty or has corrupted encoding"""
     try:
         db = get_db()
         prod_count = await db.products.count_documents({})
-        if prod_count > 0:
+
+        # Check if corrupted encoding exists (e.g. "à°" in category names)
+        sample_cat = await db.categories.find_one()
+        needs_refresh = False
+        if sample_cat and ("à°" in sample_cat.get("name", "") or "Ã" in sample_cat.get("name", "")):
+            needs_refresh = True
+            print("Corrupted character encoding detected in catalog. Refreshing with clean UTF-8 Telugu text...")
+
+        if prod_count > 0 and not force and not needs_refresh:
             return {
                 "success": True,
                 "message": f"Database already has {prod_count} products. Skipping auto-seed."
             }
+
+        if force or needs_refresh:
+            print("Purging existing corrupted categories and products for clean Telugu re-seed...")
+            await db.categories.delete_many({})
+            await db.products.delete_many({})
 
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         backend_dir = os.path.dirname(curr_dir)

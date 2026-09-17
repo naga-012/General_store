@@ -1,41 +1,41 @@
 [
   {
-    "name": "Dals, Grains & Flours (à°ªà°ªà±à°ªà±à°²à±, à°¬à°¿à°¯à±à°¯à°‚ & à°ªà°¿à°‚à°¡à±à°²à±)",
+    "name": "Dals, Grains & Flours (పప్పులు, బియ్యం & పిండ్లు)",
     "image": "https://images.unsplash.com/photo-1599818816941-b0db355d2ff1?w=600&auto=format&fit=crop&q=80",
     "description": "Rice, Atta, Maida, Rava, Poha, All Dal Varieties, Chana, Rajma, Sugar, Salt & Jaggery at Telangana Wholesale Prices"
   },
   {
-    "name": "Spices, Masalas & Cooking (à°®à°¸à°¾à°²à°¾à°²à± & à°ªà±‹à°ªà± à°¦à°¿à°¨à±à°¸à±à°²à±)",
+    "name": "Spices, Masalas & Cooking (మసాలాలు & పోపు దినుసులు)",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80",
     "description": "Turmeric, Chilli powder, Coriander powder, Garam masala, Cumin, Mustard, Pepper, Ginger-Garlic paste, Sambar & Biryani masala"
   },
   {
-    "name": "Dairy, Eggs & Bakery (à°ªà°¾à°²à±, à°ªà±†à°°à±à°—à±, à°—à±à°¡à±à°²à± & à°¬à±à°°à±†à°¡à±)",
+    "name": "Dairy, Eggs & Bakery (పాలు, పెరుగు, గుడ్లు & బ్రెడ్)",
     "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&auto=format&fit=crop&q=80",
     "description": "Fresh Milk, Thick Curd, Farm Eggs & Daily Soft Bread"
   },
   {
-    "name": "Snacks, Biscuits & Drinks (à°¸à±à°¨à°¾à°•à±à°¸à±, à°¬à°¿à°¸à±à°•à±†à°Ÿà±à°²à± & à°•à±‚à°²à± à°¡à±à°°à°¿à°‚à°•à±à°¸à±)",
+    "name": "Snacks, Biscuits & Drinks (స్నాక్స్, బిస్కెట్లు & కూల్ డ్రింక్స్)",
     "image": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=600&auto=format&fit=crop&q=80",
     "description": "Biscuits, Cookies, Lay's Chips, Telangana Mixture, Thums Up, Sprite & Fruit Juices"
   },
   {
-    "name": "Personal Care & Hygiene (à°µà±à°¯à°•à±à°¤à°¿à°—à°¤ à°¸à°‚à°°à°•à±à°·à°£ & à°¸à°¬à±à°¬à±à°²à±)",
+    "name": "Personal Care & Hygiene (వ్యక్తిగత సంరక్షణ & సబ్బులు)",
     "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&auto=format&fit=crop&q=80",
     "description": "Bath Soap, Shampoo, Conditioner, Toothpaste, Toothbrush, Face Wash, Hair Oil, Shaving, Deodorant & Hand Wash"
   },
   {
-    "name": "Cleaning & Home Care (à°•à±à°²à±€à°¨à°¿à°‚à°—à± & à°µà°¾à°·à°¿à°‚à°—à±)",
+    "name": "Cleaning & Home Care (క్లీనింగ్ & వాషింగ్)",
     "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&auto=format&fit=crop&q=80",
     "description": "Detergent Powder, Dishwash Liquid, Floor Cleaner, Toilet Cleaner, Bleaching Powder & Scrubbers"
   },
   {
-    "name": "Stationery & Study (à°¸à±à°Ÿà±‡à°·à°¨à°°à±€ à°µà°¸à±à°¤à±à°µà±à°²à±)",
+    "name": "Stationery & Study (స్టేషనరీ వస్తువులు)",
     "image": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80",
     "description": "Pens, Pencils, Notebooks, Erasers, Sharpeners & Markers for School and Home"
   },
   {
-    "name": "Household & Lighting (à°ªà±‚à°œ & à°—à±ƒà°¹à±‹à°ªà°•à°°à°£à°¾à°²à±)",
+    "name": "Household & Lighting (పూజ & గృహోపకరణాలు)",
     "image": "https://images.unsplash.com/photo-1603555501671-8f96b3fce8b4?w=600&auto=format&fit=crop&q=80",
     "description": "Mosquito Repellents, Matchboxes, Kitchen Lighters & Household Candles"
   }
