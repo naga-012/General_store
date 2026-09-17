@@ -111,15 +111,35 @@ async def get_products(
     cursor = db.products.find(query).sort(sort_order)
     raw_products = await cursor.to_list(length=500)
 
+    # Pre-fetch categories in a single query for maximum speed
+    all_cats = await db.categories.find().to_list(length=200)
+    cat_map = {
+        str(c["_id"]): {
+            "_id": str(c["_id"]),
+            "name": c.get("name", ""),
+            "slug": c.get("slug", "")
+        }
+        for c in all_cats
+    }
+
     populated_products = []
     for p in raw_products:
-        pop = await populate_product(p, db)
+        pop = serialize_doc(p)
+        cat_id = str(p.get("category", ""))
+        if cat_id in cat_map:
+            pop["category"] = cat_map[cat_id]
+
+        variants = pop.get("variants", [])
+        pop["totalStock"] = sum(v.get("stock", 0) for v in variants)
+        pop["minPrice"] = min((v.get("price", 0) for v in variants), default=0)
+
         if minPrice is not None or maxPrice is not None:
             min_val = minPrice if minPrice is not None else 0
             max_val = maxPrice if maxPrice is not None else float("inf")
-            has_match = any(min_val <= v.get("price", 0) <= max_val for v in pop.get("variants", []))
+            has_match = any(min_val <= v.get("price", 0) <= max_val for v in variants)
             if not has_match:
                 continue
+
         populated_products.append(pop)
 
     return {
