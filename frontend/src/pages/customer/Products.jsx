@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, SlidersHorizontal, ArrowUpDown, X, PackageX } from 'lucide-react';
 import api from '../../services/api';
 import ProductCard from '../../components/ProductCard';
+import { useSocket } from '../../context/SocketContext';
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { productEvent } = useSocket() || {};
 
   // Filters State
   const [keyword, setKeyword] = useState(searchParams.get('keyword') || '');
@@ -51,7 +53,7 @@ const Products = () => {
     };
 
     fetchFilteredProducts();
-  }, [keyword, selectedCategory, sort, inStockOnly, minPrice, maxPrice]);
+  }, [keyword, selectedCategory, sort, inStockOnly, minPrice, maxPrice, productEvent]);
 
   const handleClearFilters = () => {
     setKeyword('');
@@ -96,8 +98,8 @@ const Products = () => {
             >
               <option value="newest">Newest Arrivals</option>
               <option value="popular">Popular Essentials</option>
-              <option value="price-asc">Price: Low → High</option>
-              <option value="price-desc">Price: High → Low</option>
+              <option value="price-asc">Price: Low â†’ High</option>
+              <option value="price-desc">Price: High â†’ Low</option>
             </select>
           </div>
         </div>
@@ -172,7 +174,7 @@ const Products = () => {
           {/* Price Range */}
           <div>
             <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
-              Price Range (₹)
+              Price Range (â‚¹)
             </label>
             <div className="flex items-center gap-2">
               <input
@@ -240,7 +242,7 @@ const Products = () => {
 
               {/* Mobile price */}
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-2">Price Range (₹)</label>
+                <label className="text-xs font-bold text-slate-700 block mb-2">Price Range (â‚¹)</label>
                 <div className="flex gap-2">
                   <input
                     type="number"
@@ -330,3 +332,4 @@ const Products = () => {
 };
 
 export default Products;
+

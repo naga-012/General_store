@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Search,
@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import api from '../../services/api';
 import ProductCard from '../../components/ProductCard';
+import { useSocket } from '../../context/SocketContext';
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -19,6 +20,7 @@ const Home = () => {
   const [settings, setSettings] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const { productEvent } = useSocket() || {};
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const Home = () => {
     };
 
     loadHomeData();
-  }, []);
+  }, [productEvent]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -264,3 +266,4 @@ const Home = () => {
 };
 
 export default Home;
+

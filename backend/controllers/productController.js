@@ -1,5 +1,6 @@
-const Product = require('../models/Product');
+﻿const Product = require('../models/Product');
 const Category = require('../models/Category');
+const { emitProductChange } = require('../services/socketService');
 
 // @desc    Get all products with filtering, search and sorting
 // @route   GET /api/products
@@ -35,7 +36,6 @@ const getProducts = async (req, res) => {
 
     // Category filter
     if (category && category !== 'all') {
-      // Check if it's an ObjectId or category slug/name
       if (category.match(/^[0-9a-fA-F]{24}$/)) {
         query.category = category;
       } else {
@@ -71,7 +71,6 @@ const getProducts = async (req, res) => {
       productsQuery = productsQuery.sort({ createdAt: -1 });
     }
 
-    // Price filter (in memory / post-query if complex, or filter variants)
     let products = await productsQuery;
 
     if (minPrice || maxPrice) {
@@ -152,10 +151,13 @@ const createProduct = async (req, res) => {
       variants,
       status: status || 'active',
       isFeatured: isFeatured || false,
-      lowStockThreshold: lowStockThreshold !== undefined ? lowStockThreshold : 10,
+      lowStockThreshold: lowStockThreshold !== undefined ? Number(lowStockThreshold) : 10,
     });
 
     const populatedProduct = await Product.findById(product._id).populate('category', 'name slug');
+
+    // Emit live socket event
+    emitProductChange({ type: 'create', product: populatedProduct });
 
     res.status(201).json({
       success: true,
@@ -195,10 +197,13 @@ const updateProduct = async (req, res) => {
     if (variants && variants.length > 0) product.variants = variants;
     if (status !== undefined) product.status = status;
     if (isFeatured !== undefined) product.isFeatured = isFeatured;
-    if (lowStockThreshold !== undefined) product.lowStockThreshold = lowStockThreshold;
+    if (lowStockThreshold !== undefined) product.lowStockThreshold = Number(lowStockThreshold);
 
     const updatedProduct = await product.save();
     const populated = await Product.findById(updatedProduct._id).populate('category', 'name slug');
+
+    // Emit live socket event
+    emitProductChange({ type: 'update', product: populated });
 
     res.json({
       success: true,
@@ -220,7 +225,12 @@ const deleteProduct = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Product not found' });
     }
 
+    const productId = product._id;
     await product.deleteOne();
+
+    // Emit live socket event
+    emitProductChange({ type: 'delete', productId });
+
     res.json({ success: true, message: 'Product removed successfully' });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -240,10 +250,15 @@ const toggleProductStatus = async (req, res) => {
     product.status = product.status === 'active' ? 'inactive' : 'active';
     await product.save();
 
+    const populated = await Product.findById(product._id).populate('category', 'name slug');
+
+    // Emit live socket event
+    emitProductChange({ type: 'status_toggle', product: populated });
+
     res.json({
       success: true,
       message: `Product marked as ${product.status}`,
-      product,
+      product: populated,
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

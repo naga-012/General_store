@@ -1,4 +1,4 @@
-let ioInstance = null;
+﻿let ioInstance = null;
 
 const initSocket = (io) => {
   ioInstance = io;
@@ -61,10 +61,18 @@ const emitLowStockAlert = (alertData) => {
   }
 };
 
+// Emit product updates to both customer and owner
+const emitProductChange = (changeData) => {
+  if (ioInstance) {
+    ioInstance.emit('product_updated', changeData);
+  }
+};
+
 module.exports = {
   initSocket,
   getIO,
   emitNewOrderToAdmin,
   emitOrderStatusUpdate,
   emitLowStockAlert,
+  emitProductChange,
 };

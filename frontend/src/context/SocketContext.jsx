@@ -7,12 +7,22 @@ const SocketContext = createContext();
 
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
+  const [productEvent, setProductEvent] = useState(null);
   const { user, isAuthenticated, isAdmin } = useAuth();
   const { addLiveNotification, fetchNotifications } = useNotification();
 
   useEffect(() => {
+    // Determine socket server URL
+    const getSocketUrl = () => {
+      const socketEnv = import.meta.env.VITE_SOCKET_URL;
+      if (socketEnv) return socketEnv.replace(/\/+$/, '');
+      const apiEnv = import.meta.env.VITE_API_URL;
+      if (apiEnv) return apiEnv.replace(/\/api\/?$/, '');
+      return window.location.origin;
+    };
+
     // Initialize socket connection
-    const newSocket = io(window.location.origin, {
+    const newSocket = io(getSocketUrl(), {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 5,
     });
@@ -67,13 +77,19 @@ export const SocketProvider = ({ children }) => {
       fetchNotifications();
     });
 
+    // Live product updates (Add, edit, price, status change)
+    newSocket.on('product_updated', (changeData) => {
+      console.log('Live product change received:', changeData);
+      setProductEvent(changeData);
+    });
+
     return () => {
       newSocket.disconnect();
     };
   }, [user?._id, isAdmin]);
 
   return (
-    <SocketContext.Provider value={{ socket }}>
+    <SocketContext.Provider value={{ socket, productEvent }}>
       {children}
     </SocketContext.Provider>
   );

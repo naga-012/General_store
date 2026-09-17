@@ -1,4 +1,4 @@
-const Order = require('../models/Order');
+﻿const Order = require('../models/Order');
 const Product = require('../models/Product');
 const User = require('../models/User');
 const Setting = require('../models/Setting');
@@ -8,42 +8,68 @@ const Setting = require('../models/Setting');
 // @access  Private/Admin
 const getDashboardStats = async (req, res) => {
   try {
-    const todayStart = new Date();
+    const now = new Date();
+    
+    // Today boundary
+    const todayStart = new Date(now);
     todayStart.setHours(0, 0, 0, 0);
 
+    // This week boundary (last 7 days or start of week)
+    const weekStart = new Date(now);
+    weekStart.setDate(weekStart.getDate() - 7);
+    weekStart.setHours(0, 0, 0, 0);
+
+    // This month boundary
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+
     const [
-      totalProducts,
+      allProducts,
       totalCustomers,
+      newCustomers,
       allOrders,
-      lowStockProducts,
     ] = await Promise.all([
-      Product.countDocuments(),
+      Product.find().populate('category', 'name slug'),
       User.countDocuments({ role: 'customer' }),
+      User.countDocuments({ role: 'customer', createdAt: { $gte: weekStart } }),
       Order.find().sort({ createdAt: -1 }),
-      Product.find({
-        $expr: {
-          $lte: [
-            { $sum: '$variants.stock' },
-            '$lowStockThreshold',
-          ],
-        },
-      }).populate('category', 'name'),
     ]);
 
+    // Compute Product Statistics
+    let totalProducts = allProducts.length;
+    let activeProducts = 0;
+    let inactiveProducts = 0;
+    let outOfStockProducts = 0;
+    let lowStockProductsList = [];
+
+    allProducts.forEach((p) => {
+      if (p.status === 'active') activeProducts++;
+      else inactiveProducts++;
+
+      const totalVariantStock = (p.variants || []).reduce((sum, v) => sum + (v.stock || 0), 0);
+      const threshold = p.lowStockThreshold !== undefined ? p.lowStockThreshold : 10;
+
+      if (totalVariantStock === 0) {
+        outOfStockProducts++;
+      } else if (totalVariantStock <= threshold) {
+        lowStockProductsList.push(p);
+      }
+    });
+
+    // Compute Order & Sales Statistics
     let totalSales = 0;
     let todaySales = 0;
-    let todayOrdersCount = 0;
+    let weekSales = 0;
+    let monthSales = 0;
 
     let newOrdersCount = 0;
-    let pendingOrdersCount = 0;
+    let acceptedOrdersCount = 0;
     let packedOrdersCount = 0;
+    let readyPickupOrdersCount = 0;
     let completedOrdersCount = 0;
     let rejectedOrdersCount = 0;
+    let cancelledOrdersCount = 0;
 
-    const categorySalesMap = {};
     const dailySalesMap = {};
-
-    // Last 7 days keys
     for (let i = 6; i >= 0; i--) {
       const d = new Date();
       d.setDate(d.getDate() - i);
@@ -51,37 +77,55 @@ const getDashboardStats = async (req, res) => {
       dailySalesMap[key] = { date: key, sales: 0, orders: 0 };
     }
 
+    const categorySalesMap = {};
+
     allOrders.forEach((order) => {
       const orderDate = new Date(order.createdAt);
       const isToday = orderDate >= todayStart;
+      const isWeek = orderDate >= weekStart;
+      const isMonth = orderDate >= monthStart;
 
-      if (isToday) {
-        todayOrdersCount++;
+      switch (order.orderStatus) {
+        case 'ORDER_PLACED':
+          newOrdersCount++;
+          break;
+        case 'ORDER_ACCEPTED':
+          acceptedOrdersCount++;
+          break;
+        case 'PACKED':
+          packedOrdersCount++;
+          break;
+        case 'READY_FOR_PICKUP':
+          readyPickupOrdersCount++;
+          packedOrdersCount++;
+          break;
+        case 'COMPLETED':
+          completedOrdersCount++;
+          break;
+        case 'REJECTED':
+          rejectedOrdersCount++;
+          break;
+        case 'CANCELLED':
+          cancelledOrdersCount++;
+          break;
       }
 
-      if (order.orderStatus === 'ORDER_PLACED') newOrdersCount++;
-      else if (order.orderStatus === 'ORDER_ACCEPTED') pendingOrdersCount++;
-      else if (order.orderStatus === 'PACKED' || order.orderStatus === 'READY_FOR_PICKUP') packedOrdersCount++;
-      else if (order.orderStatus === 'COMPLETED') completedOrdersCount++;
-      else if (order.orderStatus === 'REJECTED') rejectedOrdersCount++;
-
-      // Count sales for completed orders
+      // Sales calculations (from completed orders)
       if (order.orderStatus === 'COMPLETED') {
-        totalSales += order.grandTotal;
-        if (isToday) {
-          todaySales += order.grandTotal;
-        }
+        const amount = order.grandTotal || 0;
+        totalSales += amount;
+        if (isToday) todaySales += amount;
+        if (isWeek) weekSales += amount;
+        if (isMonth) monthSales += amount;
 
-        // Aggregate daily sales
         const dayKey = orderDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         if (dailySalesMap[dayKey]) {
-          dailySalesMap[dayKey].sales += order.grandTotal;
+          dailySalesMap[dayKey].sales += amount;
           dailySalesMap[dayKey].orders += 1;
         }
 
-        // Aggregate items
-        order.items.forEach((item) => {
-          categorySalesMap[item.name] = (categorySalesMap[item.name] || 0) + item.lineTotal;
+        (order.items || []).forEach((item) => {
+          categorySalesMap[item.name] = (categorySalesMap[item.name] || 0) + (item.lineTotal || 0);
         });
       }
     });
@@ -90,30 +134,44 @@ const getDashboardStats = async (req, res) => {
     const topProductsChart = Object.entries(categorySalesMap)
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value)
-      .slice(0, 5);
+      .slice(0, 6);
 
     res.json({
       success: true,
       stats: {
+        // Product stats
         totalProducts,
-        totalCustomers,
+        activeProducts,
+        inactiveProducts,
+        outOfStock: outOfStockProducts,
+        lowStock: lowStockProductsList.length,
+
+        // Order stats
         totalOrders: allOrders.length,
         newOrders: newOrdersCount,
-        pendingOrders: pendingOrdersCount,
+        acceptedOrders: acceptedOrdersCount,
         packedOrders: packedOrdersCount,
+        readyForPickup: readyPickupOrdersCount,
         completedOrders: completedOrdersCount,
         rejectedOrders: rejectedOrdersCount,
-        totalSales,
+        cancelledOrders: cancelledOrdersCount,
+
+        // Sales stats
         todaySales,
-        todayOrdersCount,
-        lowStockCount: lowStockProducts.length,
+        weekSales,
+        monthSales,
+        totalSales,
+
+        // Customer stats
+        totalCustomers,
+        newCustomers,
       },
       charts: {
         dailySales: dailySalesChart,
         topProducts: topProductsChart,
       },
-      lowStockProducts,
-      recentOrders: allOrders.slice(0, 5),
+      lowStockProducts: lowStockProductsList,
+      recentOrders: allOrders.slice(0, 10),
     });
   } catch (error) {
     console.error('Dashboard stats error:', error);
@@ -130,7 +188,6 @@ const getCustomers = async (req, res) => {
       .select('-password')
       .sort({ createdAt: -1 });
 
-    // Attach order counts
     const customersWithStats = await Promise.all(
       customers.map(async (c) => {
         const orderCount = await Order.countDocuments({ customer: c._id });
@@ -138,7 +195,7 @@ const getCustomers = async (req, res) => {
           customer: c._id,
           orderStatus: 'COMPLETED',
         });
-        const totalSpent = completedOrders.reduce((sum, o) => sum + o.grandTotal, 0);
+        const totalSpent = completedOrders.reduce((sum, o) => sum + (o.grandTotal || 0), 0);
 
         return {
           ...c.toObject(),
@@ -186,7 +243,7 @@ const updateSettings = async (req, res) => {
     }
 
     const updated = await settings.save();
-    res.json({ success: true, message: 'Shop settings updated', settings: updated });
+    res.json({ success: true, message: 'Shop settings updated successfully', settings: updated });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
