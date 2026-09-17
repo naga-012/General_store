@@ -38,6 +38,8 @@ app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 # Fast diagnostic DB check middleware for API requests
 @app.middleware("http")
 async def db_connectivity_middleware(request: Request, call_next):
+    if request.method == "HEAD":
+        return await call_next(request)
     path = request.url.path
     if path.startswith("/api") and path != "/api/health":
         # Ensure database is reachable
@@ -54,7 +56,7 @@ async def db_connectivity_middleware(request: Request, call_next):
     return response
 
 # Health check route
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 async def health_check():
     db_ok = await check_db_connection()
     status_text = "healthy" if db_ok else "degraded"
@@ -66,7 +68,7 @@ async def health_check():
     }
 
 # Root route
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return {
         "status": "online",
