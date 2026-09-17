@@ -52,7 +52,18 @@ const Register = () => {
         navigate('/login');
       }, 2000);
     } catch (err) {
-      setError(err.response?.data?.message || err.message || 'Registration failed');
+      const data = err.response?.data;
+      let errorMsg = 'Registration failed';
+      if (typeof data?.detail === 'string') {
+        errorMsg = data.detail;
+      } else if (Array.isArray(data?.detail)) {
+        errorMsg = data.detail.map((d) => d.msg || d.message).join(', ');
+      } else if (data?.message) {
+        errorMsg = data.message;
+      } else if (err.message) {
+        errorMsg = err.message;
+      }
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }

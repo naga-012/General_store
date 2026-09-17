@@ -36,7 +36,18 @@ const Login = () => {
         navigate('/');
       }
     } catch (err) {
-      setError(err.response?.data?.message || err.message || 'Invalid login credentials');
+      const data = err.response?.data;
+      let errorMsg = 'Invalid login credentials';
+      if (typeof data?.detail === 'string') {
+        errorMsg = data.detail;
+      } else if (Array.isArray(data?.detail)) {
+        errorMsg = data.detail.map((d) => d.msg || d.message).join(', ');
+      } else if (data?.message) {
+        errorMsg = data.message;
+      } else if (err.message) {
+        errorMsg = err.message;
+      }
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }

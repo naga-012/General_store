@@ -35,104 +35,122 @@ class UpdateProfileRequest(BaseModel):
 
 @router.post("/register", status_code=status.HTTP_201_CREATED)
 async def register(req: RegisterRequest):
-    name = req.name.strip()
-    email = req.email.strip().lower()
-    mobile = req.mobile.strip()
-    password = req.password
-    address = (req.address or "").strip()
+    try:
+        name = req.name.strip()
+        email = req.email.strip().lower()
+        mobile = req.mobile.strip()
+        password = req.password
+        address = (req.address or "").strip()
 
-    if not name or not email or not mobile or not password:
-        raise HTTPException(
-            status_code=400,
-            detail="Please fill in all required fields (Name, Email, Mobile, Password)"
-        )
+        if not name or not email or not mobile or not password:
+            raise HTTPException(
+                status_code=400,
+                detail="Please fill in all required fields (Name, Email, Mobile, Password)"
+            )
 
-    if req.confirmPassword and password != req.confirmPassword:
-        raise HTTPException(status_code=400, detail="Passwords do not match")
+        if req.confirmPassword and password != req.confirmPassword:
+            raise HTTPException(status_code=400, detail="Passwords do not match")
 
-    if len(password) < 6:
-        raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+        if len(password) < 6:
+            raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
 
-    db = get_db()
+        db = get_db()
 
-    # Check if email exists
-    email_exists = await db.users.find_one({"email": email})
-    if email_exists:
-        raise HTTPException(status_code=400, detail="An account with this email already exists")
+        # Check if email exists
+        email_exists = await db.users.find_one({"email": email})
+        if email_exists:
+            raise HTTPException(status_code=400, detail="An account with this email already exists")
 
-    # Check if mobile exists
-    mobile_exists = await db.users.find_one({"mobile": mobile})
-    if mobile_exists:
-        raise HTTPException(status_code=400, detail="An account with this mobile number already exists")
+        # Check if mobile exists
+        mobile_exists = await db.users.find_one({"mobile": mobile})
+        if mobile_exists:
+            raise HTTPException(status_code=400, detail="An account with this mobile number already exists")
 
-    now = datetime.utcnow()
-    hashed_pwd = get_password_hash(password)
+        now = datetime.utcnow()
+        hashed_pwd = get_password_hash(password)
 
-    user_doc = {
-        "name": name,
-        "email": email,
-        "mobile": mobile,
-        "password": hashed_pwd,
-        "address": address,
-        "role": "customer",
-        "createdAt": now,
-        "updatedAt": now
-    }
-
-    result = await db.users.insert_one(user_doc)
-    user_id = str(result.inserted_id)
-
-    return {
-        "success": True,
-        "message": "Registration Successful",
-        "user": {
-            "_id": user_id,
+        user_doc = {
             "name": name,
             "email": email,
             "mobile": mobile,
+            "password": hashed_pwd,
             "address": address,
-            "role": "customer"
-        },
-        "token": generate_token(user_id)
-    }
+            "role": "customer",
+            "createdAt": now,
+            "updatedAt": now
+        }
+
+        result = await db.users.insert_one(user_doc)
+        user_id = str(result.inserted_id)
+
+        return {
+            "success": True,
+            "message": "Registration Successful",
+            "user": {
+                "_id": user_id,
+                "name": name,
+                "email": email,
+                "mobile": mobile,
+                "address": address,
+                "role": "customer"
+            },
+            "token": generate_token(user_id)
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Registration error: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Registration failed: {str(e)}"
+        )
 
 @router.post("/login")
 async def login(req: LoginRequest):
-    identifier = (req.identifier or req.email or req.mobile or "").strip()
-    if not identifier or not req.password:
+    try:
+        identifier = (req.identifier or req.email or req.mobile or "").strip()
+        if not identifier or not req.password:
+            raise HTTPException(
+                status_code=400,
+                detail="Please provide Email or Mobile Number and Password"
+            )
+
+        db = get_db()
+        user = await db.users.find_one({
+            "$or": [
+                {"email": identifier.lower()},
+                {"mobile": identifier}
+            ]
+        })
+
+        if not user or not verify_password(req.password, user.get("password", "")):
+            raise HTTPException(
+                status_code=401,
+                detail="Invalid email/mobile or password"
+            )
+
+        user_id = str(user["_id"])
+        return {
+            "success": True,
+            "message": "Login successful",
+            "user": {
+                "_id": user_id,
+                "name": user.get("name", ""),
+                "email": user.get("email", ""),
+                "mobile": user.get("mobile", ""),
+                "address": user.get("address", ""),
+                "role": user.get("role", "customer")
+            },
+            "token": generate_token(user_id)
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Login error: {e}")
         raise HTTPException(
-            status_code=400,
-            detail="Please provide Email or Mobile Number and Password"
+            status_code=500,
+            detail=f"Login failed: {str(e)}"
         )
-
-    db = get_db()
-    user = await db.users.find_one({
-        "$or": [
-            {"email": identifier.lower()},
-            {"mobile": identifier}
-        ]
-    })
-
-    if not user or not verify_password(req.password, user.get("password", "")):
-        raise HTTPException(
-            status_code=401,
-            detail="Invalid email/mobile or password"
-        )
-
-    user_id = str(user["_id"])
-    return {
-        "success": True,
-        "message": "Login successful",
-        "user": {
-            "_id": user_id,
-            "name": user.get("name", ""),
-            "email": user.get("email", ""),
-            "mobile": user.get("mobile", ""),
-            "address": user.get("address", ""),
-            "role": user.get("role", "customer")
-        },
-        "token": generate_token(user_id)
-    }
 
 @router.get("/profile")
 @router.get("/me")
