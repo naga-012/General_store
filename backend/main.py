@@ -43,7 +43,7 @@ async def db_connectivity_middleware(request: Request, call_next):
     path = request.url.path
     if path.startswith("/api") and path not in ("/api/health", "/api/health/db"):
         # Ensure database is reachable
-        db_ok = await check_db_connection()
+        db_ok, msg = await check_db_connection()
         if not db_ok:
             origin = request.headers.get("origin", "*")
             return JSONResponse(
@@ -54,7 +54,7 @@ async def db_connectivity_middleware(request: Request, call_next):
                 },
                 content={
                     "success": False,
-                    "message": "Database is not connected. Please verify that MONGODB_URI is set in Render environment variables and that MongoDB Atlas allows access from 0.0.0.0/0."
+                    "message": f"Database is not connected ({msg}). Please verify MONGODB_URI in Render environment variables."
                 }
             )
     response = await call_next(request)
@@ -71,12 +71,20 @@ async def health_check():
 # Diagnostic DB health check route
 @app.api_route("/api/health/db", methods=["GET", "HEAD"])
 async def health_db_check():
-    db_ok = await check_db_connection()
+    db_ok, msg = await check_db_connection()
     status_text = "healthy" if db_ok else "degraded"
     db_status = "connected" if db_ok else "disconnected"
+    uri_env = os.getenv("MONGODB_URI", "")
+    # Mask password for security
+    masked_uri = "NOT_SET"
+    if uri_env:
+        masked_uri = uri_env[:15] + "..." + uri_env[-10:] if len(uri_env) > 25 else "SET_SHORT"
     return {
         "status": status_text,
         "database": db_status,
+        "mongodb_env_configured": bool(uri_env),
+        "mongodb_uri_preview": masked_uri,
+        "diagnostic_detail": msg,
         "timestamp": datetime.utcnow().isoformat()
     }
 

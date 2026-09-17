@@ -31,15 +31,20 @@ def get_db():
         db = client[db_name]
     return db
 
-async def check_db_connection() -> bool:
-    """Check if MongoDB connection is active and responding"""
+last_db_error = None
+
+async def check_db_connection():
+    """Check if MongoDB connection is active and responding, returning (bool, str)"""
+    global last_db_error
     try:
         database = get_db()
         await database.command("ping")
-        return True
+        last_db_error = None
+        return True, "connected"
     except Exception as e:
+        last_db_error = str(e)
         print(f"MongoDB ping failed: {e}")
-        return False
+        return False, str(e)
 
 def serialize_doc(doc):
     """Recursively convert MongoDB document (ObjectId, datetime) to JSON serializable dictionary"""
