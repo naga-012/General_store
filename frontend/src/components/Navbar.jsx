@@ -69,24 +69,24 @@ const Navbar = () => {
       </div>
 
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-1.5 sm:gap-4">
           {/* Logo & Brand */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 group min-w-0">
             <img
               src="/logo.png"
               alt="Manikanta Supermarket"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain bg-white p-0.5 border border-slate-200 shadow-sm group-hover:scale-105 transition-transform"
+              className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl object-contain bg-white p-0.5 border border-slate-200 shadow-sm group-hover:scale-105 transition-transform shrink-0"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=100';
               }}
             />
-            <div>
-              <span className="text-base sm:text-xl font-black tracking-tight text-slate-900 flex items-center gap-1">
+            <div className="min-w-0">
+              <span className="text-[13px] sm:text-lg font-black tracking-tight text-slate-900 flex items-center gap-0.5 whitespace-nowrap">
                 Manikanta<span className="text-brand-600">Supermarket</span>
               </span>
-              <p className="text-[10px] text-slate-500 hidden sm:block -mt-1 font-medium">
+              <p className="text-[9px] text-slate-500 hidden sm:block -mt-1 font-medium">
                 Curry Essentials & Telangana Dals
               </p>
             </div>
@@ -231,16 +231,16 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
                 <Link
                   to="/login"
-                  className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition"
+                  className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition whitespace-nowrap"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-brand-600 hover:bg-brand-700 text-white shadow-sm transition"
+                  className="px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold bg-brand-600 hover:bg-brand-700 text-white shadow-sm transition whitespace-nowrap"
                 >
                   Register
                 </Link>
@@ -250,7 +250,8 @@ const Navbar = () => {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+              className="lg:hidden p-1 sm:p-2 rounded-lg sm:rounded-xl text-slate-600 hover:bg-slate-100 transition shrink-0"
+              aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
