@@ -66,7 +66,7 @@ const Home = () => {
   };
 
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-8 sm:space-y-12 pb-16 w-full max-w-full overflow-x-hidden">
       {/* Hero Banner */}
       <section className="hidden md:block relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 text-white shadow-2xl mx-4 sm:mx-0 mt-4 sm:mt-6 p-6 sm:p-12">
         <div className="absolute -right-16 -top-16 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
