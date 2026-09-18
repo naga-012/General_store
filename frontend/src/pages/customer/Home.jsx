@@ -68,7 +68,7 @@ const Home = () => {
   return (
     <div className="space-y-12 pb-16">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 text-white shadow-2xl mx-4 sm:mx-0 mt-4 sm:mt-6 p-6 sm:p-12">
+      <section className="hidden md:block relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 text-white shadow-2xl mx-4 sm:mx-0 mt-4 sm:mt-6 p-6 sm:p-12">
         <div className="absolute -right-16 -top-16 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -left-16 -bottom-16 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
