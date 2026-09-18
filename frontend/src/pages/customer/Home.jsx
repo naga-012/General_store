@@ -143,7 +143,7 @@ const Home = () => {
 
       {/* Categories Horizontal Scroll / Grid (Blinkit / Zepto App style) */}
       <section className="px-4 sm:px-0">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3.5">
           <div>
             <h2 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
               Explore Categories
@@ -154,29 +154,32 @@ const Home = () => {
           </div>
           <Link
             to="/products"
-            className="text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center gap-1 group"
+            className="text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center gap-1 group bg-brand-50 hover:bg-brand-100 px-2.5 py-1 rounded-full transition"
           >
-            All Categories <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
+            All Categories <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition" />
           </Link>
         </div>
 
-        {/* Horizontal scrolling on mobile, grid on desktop */}
-        <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-8 gap-3 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Blinkit / Zepto style circular category items with horizontal scroll */}
+        <div className="flex sm:grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <Link
               key={cat._id}
               to={`/products?category=${encodeURIComponent(cat.slug || cat.name)}`}
-              className="group bg-white rounded-2xl p-2.5 sm:p-3 border border-slate-200/80 hover:border-brand-400 shadow-sm hover:shadow-md transition text-center flex flex-col items-center justify-between shrink-0 w-24 sm:w-auto"
+              className="group flex flex-col items-center shrink-0 w-[78px] sm:w-24 text-center cursor-pointer transition-transform active:scale-95"
             >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-slate-100 mb-2 group-hover:scale-105 transition duration-300">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-brand-50/90 to-slate-100/80 border border-slate-200/80 p-1.5 shadow-sm group-hover:shadow-md group-hover:border-brand-400 group-hover:bg-brand-50 transition-all duration-200 flex items-center justify-center overflow-hidden">
                 <img
                   src={getImageUrl(cat.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&auto=format&fit=crop&q=60')}
                   alt={cat.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl sm:rounded-2xl group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&auto=format&fit=crop&q=60';
+                  }}
                 />
               </div>
-              <span className="text-[11px] font-bold text-slate-800 group-hover:text-brand-700 line-clamp-2 leading-tight">
+              <span className="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-brand-700 line-clamp-2 mt-1.5 leading-tight text-center px-0.5 max-w-full">
                 {cat.name}
               </span>
             </Link>
