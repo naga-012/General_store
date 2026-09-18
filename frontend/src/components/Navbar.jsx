@@ -7,7 +7,6 @@ import {
   User,
   LogOut,
   Package,
-  ShieldCheck,
   Menu,
   X,
   ChevronDown,
@@ -18,7 +17,7 @@ import NotificationDropdown from './NotificationDropdown';
 import api from '../services/api';
 
 const Navbar = () => {
-  const { user, isAuthenticated, isAdmin, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const { totalItems } = useCart();
   const [settings, setSettings] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -134,7 +133,7 @@ const Navbar = () => {
               >
                 Products
               </Link>
-              {isAuthenticated && !isAdmin && (
+              {isAuthenticated && (
                 <Link
                   to="/orders"
                   className={`px-3 py-1.5 rounded-lg transition ${
@@ -167,8 +166,6 @@ const Navbar = () => {
                 Cart
               </span>
             </Link>
-
-
 
             {/* User Profile / Auth */}
             {isAuthenticated ? (
