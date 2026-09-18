@@ -101,11 +101,11 @@ const ProductDetail = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm">
         {/* Product Image Column */}
         <div className="space-y-4">
-          <div className="aspect-square rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 relative shadow-inner">
+          <div className="aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/80 relative shadow-sm flex items-center justify-center p-6">
             <img
               src={product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80'}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               onError={(e) => {
                 e.target.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80';
               }}

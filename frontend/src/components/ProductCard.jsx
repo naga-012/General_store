@@ -66,12 +66,12 @@ const ProductCard = ({ product }) => {
         {/* Product Image */}
         <Link
           to={`/products/${product._id}`}
-          className="block relative aspect-square overflow-hidden bg-slate-50"
+          className="block relative aspect-square overflow-hidden bg-white p-2.5 border-b border-slate-100 flex items-center justify-center"
         >
           <img
             src={product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60'}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
             loading="lazy"
             onError={(e) => {
               e.target.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60';

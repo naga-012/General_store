@@ -391,7 +391,7 @@ const Checkout = () => {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-12 h-12 rounded-xl object-cover bg-slate-50 border border-slate-100 shrink-0"
+                    className="w-12 h-12 rounded-xl object-contain p-1 bg-white border border-slate-200 shrink-0"
                   />
                   <div className="min-w-0">
                     <h4 className="font-bold text-sm text-slate-900 truncate">

@@ -296,7 +296,7 @@ const MyOrders = () => {
                         <img
                           src={item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&auto=format&fit=crop&q=60'}
                           alt={item.name}
-                          className="w-10 h-10 rounded-xl object-cover border border-slate-200/60 shrink-0"
+                          className="w-10 h-10 rounded-xl object-contain p-0.5 bg-white border border-slate-200 shrink-0"
                         />
                         <div>
                           <p className="font-bold text-slate-800 text-sm">{item.name}</p>

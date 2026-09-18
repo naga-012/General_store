@@ -110,7 +110,7 @@ const Cart = () => {
                     <img
                       src={item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=100&auto=format&fit=crop&q=60'}
                       alt={item.name}
-                      className="w-14 h-14 rounded-2xl object-cover bg-slate-50 shrink-0 border border-slate-100"
+                      className="w-14 h-14 rounded-2xl object-contain p-1 bg-white shrink-0 border border-slate-200"
                     />
                     <div className="min-w-0">
                       <Link
