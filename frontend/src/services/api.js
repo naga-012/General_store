@@ -43,4 +43,32 @@ api.interceptors.response.use(
   }
 );
 
+export const getBackendOrigin = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) {
+    return envUrl.replace(/\/api\/?$/, '');
+  }
+  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    return 'http://localhost:5000';
+  }
+  return 'https://kirana-backend-mb03.onrender.com';
+};
+
+export const getImageUrl = (imageSrc, fallback) => {
+  if (!imageSrc || typeof imageSrc !== 'string' || !imageSrc.trim()) {
+    return fallback || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60';
+  }
+  const cleanSrc = imageSrc.trim();
+  if (cleanSrc.startsWith('http://') || cleanSrc.startsWith('https://') || cleanSrc.startsWith('data:')) {
+    return cleanSrc;
+  }
+  if (cleanSrc.startsWith('/uploads')) {
+    return `${getBackendOrigin()}${cleanSrc}`;
+  }
+  if (cleanSrc.startsWith('uploads/')) {
+    return `${getBackendOrigin()}/${cleanSrc}`;
+  }
+  return cleanSrc;
+};
+
 export default api;

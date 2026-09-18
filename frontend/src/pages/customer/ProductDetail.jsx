@@ -11,7 +11,7 @@ import {
   Sparkles,
   Package,
 } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 import { useCart } from '../../context/CartContext';
 
 const ProductDetail = () => {
@@ -23,6 +23,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedUnitIndex, setSelectedUnitIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [activeTab, setActiveTab] = useState('description');
   const [isAdded, setIsAdded] = useState(false);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const ProductDetail = () => {
           setProduct(res.data.product);
         }
       } catch (err) {
-        console.error('Failed to load product:', err);
+        console.error('Failed to fetch product:', err);
       } finally {
         setLoading(false);
       }
@@ -44,15 +45,10 @@ const ProductDetail = () => {
 
   if (loading) {
     return (
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-pulse">
-          <div className="h-96 bg-slate-100 rounded-3xl" />
-          <div className="space-y-4">
-            <div className="h-8 bg-slate-100 rounded-xl w-3/4" />
-            <div className="h-4 bg-slate-100 rounded-xl w-1/4" />
-            <div className="h-24 bg-slate-100 rounded-xl" />
-            <div className="h-12 bg-slate-100 rounded-xl w-1/2" />
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex justify-center">
+        <div className="animate-pulse space-y-4 w-full max-w-4xl">
+          <div className="h-96 bg-slate-200 rounded-3xl" />
+          <div className="h-8 bg-slate-200 rounded w-1/2" />
         </div>
       </div>
     );
@@ -60,37 +56,43 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="max-w-xl mx-auto text-center py-20 px-4">
-        <Package className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-        <h2 className="text-xl font-bold text-slate-800">Product Not Found</h2>
-        <p className="text-sm text-slate-500 mt-2">
-          This product might have been moved or removed from our inventory.
-        </p>
-        <button
-          onClick={() => navigate('/products')}
-          className="mt-6 px-6 py-2.5 bg-brand-600 text-white font-bold text-xs rounded-xl shadow-sm"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-4">
+        <h2 className="text-2xl font-bold text-slate-900">Product Not Found</h2>
+        <p className="text-slate-500">The grocery item you're looking for might have been moved or removed.</p>
+        <Link
+          to="/products"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white font-bold rounded-2xl shadow-lg shadow-brand-500/20"
         >
-          Back to Store Catalog
-        </button>
+          Browse All Groceries
+        </Link>
       </div>
     );
   }
 
-  const variants = product.variants || [];
+  const variants = product.variants && product.variants.length > 0
+    ? product.variants
+    : [{ unit: 'Standard', price: 0, stock: 0 }];
+
   const currentVariant = variants[selectedUnitIndex] || variants[0];
-  const isOutOfStock = !currentVariant || currentVariant.stock <= 0;
-  const isLowStock = currentVariant && currentVariant.stock > 0 && currentVariant.stock <= (product.lowStockThreshold || 10);
+  const isOutOfStock = currentVariant.stock <= 0;
+  const isLowStock = currentVariant.stock > 0 && currentVariant.stock <= (product.lowStockThreshold || 10);
 
   const handleAddToCart = () => {
     if (isOutOfStock) return;
     addToCart(product, currentVariant, quantity);
     setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 1500);
+    setTimeout(() => setIsAdded(false), 2000);
+  };
+
+  const handleBuyNow = () => {
+    if (isOutOfStock) return;
+    addToCart(product, currentVariant, quantity);
+    navigate('/cart');
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Back button */}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      {/* Breadcrumb / Back button */}
       <button
         onClick={() => navigate(-1)}
         className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-brand-700 mb-6 group transition"
@@ -103,7 +105,7 @@ const ProductDetail = () => {
         <div className="space-y-4">
           <div className="aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/80 relative shadow-sm flex items-center justify-center p-6">
             <img
-              src={product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80'}
+              src={getImageUrl(product.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80')}
               alt={product.name}
               className="w-full h-full object-contain"
               onError={(e) => {

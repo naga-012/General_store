@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Search,
@@ -10,7 +10,7 @@ import {
   Store,
   ChevronRight,
 } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 import ProductCard from '../../components/ProductCard';
 import { useSocket } from '../../context/SocketContext';
 
@@ -23,26 +23,39 @@ const Home = () => {
   const { productEvent } = useSocket() || {};
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadHomeData = async () => {
-      try {
-        const [catRes, prodRes, setRes] = await Promise.all([
-          api.get('/categories'),
-          api.get('/products?sort=popular'),
-          api.get('/admin/settings'),
-        ]);
+  const fetchHomeData = async () => {
+    try {
+      const [catRes, prodRes, settingsRes] = await Promise.allSettled([
+        api.get('/categories'),
+        api.get('/products?includeInactive=false'),
+        api.get('/admin/settings'),
+      ]);
 
-        if (catRes.data.success) setCategories(catRes.data.categories);
-        if (prodRes.data.success) setFeaturedProducts(prodRes.data.products);
-        if (setRes.data.success) setSettings(setRes.data.settings);
-      } catch (err) {
-        console.error('Failed to load home data:', err);
-      } finally {
-        setLoading(false);
+      if (catRes.status === 'fulfilled' && catRes.value.data.success) {
+        setCategories(catRes.value.data.categories);
       }
-    };
+      if (prodRes.status === 'fulfilled' && prodRes.value.data.success) {
+        const prods = prodRes.value.data.products;
+        setFeaturedProducts(prods);
+      }
+      if (settingsRes.status === 'fulfilled' && settingsRes.value.data.success) {
+        setSettings(settingsRes.value.data.settings);
+      }
+    } catch (err) {
+      console.error('Failed to load home data:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    loadHomeData();
+  useEffect(() => {
+    fetchHomeData();
+  }, []);
+
+  useEffect(() => {
+    if (productEvent) {
+      fetchHomeData();
+    }
   }, [productEvent]);
 
   const handleSearch = (e) => {
@@ -157,7 +170,7 @@ const Home = () => {
             >
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-slate-100 mb-2 group-hover:scale-105 transition duration-300">
                 <img
-                  src={cat.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&auto=format&fit=crop&q=60'}
+                  src={getImageUrl(cat.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&auto=format&fit=crop&q=60')}
                   alt={cat.name}
                   className="w-full h-full object-cover"
                   loading="lazy"

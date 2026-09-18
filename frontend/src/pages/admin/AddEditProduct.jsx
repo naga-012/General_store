@@ -11,7 +11,7 @@ import {
   Image as ImageIcon,
   Sparkles,
 } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 
 const AddEditProduct = () => {
   const { id } = useParams();
@@ -366,9 +366,9 @@ const AddEditProduct = () => {
             <div className="sm:col-span-4 aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden flex items-center justify-center relative">
               {imagePreview ? (
                 <img
-                  src={imagePreview}
+                  src={getImageUrl(imagePreview)}
                   alt="Preview"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-2"
                 />
               ) : (
                 <div className="text-center p-4 text-slate-500">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Check, Plus, Minus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { getImageUrl } from '../services/api';
 
 const ProductCard = ({ product }) => {
   const { cartItems, addToCart, updateQuantity } = useCart();
@@ -69,7 +70,7 @@ const ProductCard = ({ product }) => {
           className="block relative aspect-square overflow-hidden bg-white p-2.5 border-b border-slate-100 flex items-center justify-center"
         >
           <img
-            src={product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60'}
+            src={getImageUrl(product.image)}
             alt={product.name}
             className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
             loading="lazy"

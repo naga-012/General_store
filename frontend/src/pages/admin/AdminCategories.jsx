@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tags, Plus, Edit2, Trash2, CheckCircle2, AlertCircle, Image as ImageIcon } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
 const AdminCategories = () => {
@@ -143,10 +143,7 @@ const AdminCategories = () => {
             <div>
               <div className="w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 mb-3">
                 <img
-                  src={
-                    cat.image ||
-                    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60'
-                  }
+                  src={getImageUrl(cat.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=60')}
                   alt={cat.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition"
                 />

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
+import { getImageUrl } from '../../services/api';
 
 const Cart = () => {
   const {
@@ -108,7 +109,7 @@ const Cart = () => {
                   {/* Product & Image */}
                   <div className="sm:col-span-5 flex items-center gap-3">
                     <img
-                      src={item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=100&auto=format&fit=crop&q=60'}
+                      src={getImageUrl(item.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=100&auto=format&fit=crop&q=60')}
                       alt={item.name}
                       className="w-14 h-14 rounded-2xl object-contain p-1 bg-white shrink-0 border border-slate-200"
                     />

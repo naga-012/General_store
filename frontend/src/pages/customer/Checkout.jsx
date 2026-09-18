@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 
 const Checkout = () => {
   const {
@@ -389,7 +389,7 @@ const Checkout = () => {
               <div key={item.key} className="py-3 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3 min-w-0">
                   <img
-                    src={item.image}
+                    src={getImageUrl(item.image)}
                     alt={item.name}
                     className="w-12 h-12 rounded-xl object-contain p-1 bg-white border border-slate-200 shrink-0"
                   />

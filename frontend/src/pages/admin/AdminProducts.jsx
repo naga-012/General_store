@@ -13,7 +13,7 @@ import {
   ToggleRight,
   Filter,
 } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
 const AdminProducts = () => {
@@ -205,12 +205,9 @@ const AdminProducts = () => {
                       <td className="p-4">
                         <div className="flex items-center gap-3">
                           <img
-                            src={
-                              product.image ||
-                              'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&auto=format&fit=crop&q=60'
-                            }
+                            src={getImageUrl(product.image)}
                             alt={product.name}
-                            className="w-12 h-12 rounded-2xl object-cover bg-slate-900 border border-slate-800 shrink-0"
+                            className="w-12 h-12 rounded-2xl object-contain p-1 bg-slate-950 border border-slate-800 shrink-0"
                           />
                           <div>
                             <p className="font-bold text-white text-sm">

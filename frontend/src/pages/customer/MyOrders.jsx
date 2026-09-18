@@ -11,7 +11,7 @@ import {
   ShoppingBag,
   ExternalLink,
 } from 'lucide-react';
-import api from '../../services/api';
+import api, { getImageUrl } from '../../services/api';
 import OrderTimeline from '../../components/OrderTimeline';
 import { useSocket } from '../../context/SocketContext';
 
@@ -294,7 +294,7 @@ const MyOrders = () => {
                     <div key={idx} className="p-3 flex items-center justify-between gap-3 text-xs">
                       <div className="flex items-center gap-3">
                         <img
-                          src={item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&auto=format&fit=crop&q=60'}
+                          src={getImageUrl(item.image, 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&auto=format&fit=crop&q=60')}
                           alt={item.name}
                           className="w-10 h-10 rounded-xl object-contain p-0.5 bg-white border border-slate-200 shrink-0"
                         />
