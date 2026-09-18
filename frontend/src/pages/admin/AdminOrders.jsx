@@ -244,7 +244,11 @@ const AdminOrders = () => {
                         ₹{order.grandTotal}
                       </span>
                       <span className="text-[10px] text-slate-400 block">
-                        {order.orderType === 'Home Delivery' ? '🛵 Home Delivery (+₹40)' : '🏪 Pickup (Free)'}
+                        {order.orderType === 'Home Delivery'
+                          ? order.deliveryFee === 0
+                            ? '🛵 Home Delivery (Free > ₹1k)'
+                            : '🛵 Home Delivery (+₹40)'
+                          : '🏪 Pickup (Free)'}
                       </span>
                     </td>
 
@@ -381,7 +385,11 @@ const AdminOrders = () => {
               <div className="sm:col-span-2">
                 <span className="text-slate-500 block font-semibold">Fulfillment Mode:</span>
                 <span className="font-bold text-amber-400">
-                  {selectedOrder.orderType === 'Home Delivery' ? '🛵 Home Delivery (+₹40 Delivery Fee)' : '🏪 Customer Counter Pickup (No Delivery Charge - ₹0)'}
+                  {selectedOrder.orderType === 'Home Delivery'
+                    ? selectedOrder.deliveryFee === 0
+                      ? '🛵 Home Delivery (Free Delivery - Order > ₹1,000)'
+                      : '🛵 Home Delivery (+₹40 Delivery Fee)'
+                    : '🏪 Customer Counter Pickup (No Delivery Charge - ₹0)'}
                 </span>
               </div>
               <div className="sm:col-span-2">

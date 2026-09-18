@@ -79,7 +79,12 @@ const OrderSuccess = () => {
           <div className="flex justify-between items-center text-xs">
             <span className="text-slate-500">Fulfillment:</span>
             <span className="font-bold text-slate-800">
-              {order?.orderType || 'Pickup from Shop'} {order?.deliveryFee > 0 ? '(+₹40 Delivery)' : '(FREE - No Delivery Charge)'}
+              {order?.orderType || 'Pickup from Shop'}{' '}
+              {order?.orderType === 'Home Delivery'
+                ? order?.deliveryFee > 0
+                  ? '(+₹40 Delivery Fee)'
+                  : '(FREE Delivery - Order > ₹1,000)'
+                : '(FREE - Store Pickup)'}
             </span>
           </div>
 

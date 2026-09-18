@@ -77,11 +77,14 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem('kirana_cart');
   };
 
-  const [deliveryOption, setDeliveryOption] = useState('pickup'); // 'pickup' (0) or 'delivery' (40)
+  const [deliveryOption, setDeliveryOption] = useState('pickup'); // 'pickup' (0) or 'delivery' (40 or Free)
 
+  const FREE_DELIVERY_THRESHOLD = 1000;
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const deliveryFee = deliveryOption === 'delivery' ? 40 : 0;
+  const isFreeDeliveryEligible = subtotal >= FREE_DELIVERY_THRESHOLD;
+  const freeDeliveryRemaining = Math.max(0, FREE_DELIVERY_THRESHOLD - subtotal);
+  const deliveryFee = deliveryOption === 'delivery' ? (isFreeDeliveryEligible ? 0 : 40) : 0;
   const grandTotal = subtotal + deliveryFee;
 
   return (
@@ -94,6 +97,9 @@ export const CartProvider = ({ children }) => {
         grandTotal,
         deliveryOption,
         setDeliveryOption,
+        FREE_DELIVERY_THRESHOLD,
+        isFreeDeliveryEligible,
+        freeDeliveryRemaining,
         addToCart,
         updateQuantity,
         removeFromCart,

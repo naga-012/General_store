@@ -11,6 +11,8 @@ import {
   ShieldCheck,
   Bike,
   Check,
+  Sparkles,
+  Truck,
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
@@ -26,6 +28,9 @@ const Cart = () => {
     grandTotal,
     deliveryOption,
     setDeliveryOption,
+    FREE_DELIVERY_THRESHOLD,
+    isFreeDeliveryEligible,
+    freeDeliveryRemaining,
   } = useCart();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -207,6 +212,42 @@ const Cart = () => {
               Order Summary
             </h3>
 
+            {/* Free Delivery Threshold Banner */}
+            <div className={`p-3.5 rounded-2xl border transition-all ${
+              isFreeDeliveryEligible
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                : 'bg-amber-50/90 border-amber-200/80 text-amber-900'
+            }`}>
+              <div className="flex items-center gap-2 mb-1.5">
+                {isFreeDeliveryEligible ? (
+                  <Sparkles className="w-4 h-4 text-emerald-600 shrink-0" />
+                ) : (
+                  <Truck className="w-4 h-4 text-amber-600 shrink-0" />
+                )}
+                <p className="text-xs font-bold">
+                  {isFreeDeliveryEligible
+                    ? '🎉 You unlocked FREE Home Delivery!'
+                    : `Add ₹${freeDeliveryRemaining} more for FREE Delivery!`}
+                </p>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="w-full bg-slate-200/80 h-2 rounded-full overflow-hidden">
+                <div
+                  className={`h-full transition-all duration-500 rounded-full ${
+                    isFreeDeliveryEligible ? 'bg-emerald-500' : 'bg-brand-500'
+                  }`}
+                  style={{
+                    width: `${Math.min(100, (subtotal / FREE_DELIVERY_THRESHOLD) * 100)}%`,
+                  }}
+                />
+              </div>
+              <p className="text-[10px] text-slate-500 mt-1 flex justify-between">
+                <span>Free delivery on orders above ₹1,000</span>
+                <span className="font-semibold text-slate-700">₹{subtotal} / ₹1,000</span>
+              </p>
+            </div>
+
             {/* Delivery Option Selector */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
@@ -263,9 +304,15 @@ const Cart = () => {
                     <div>
                       <p className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                         Home Delivery
-                        <span className="px-1.5 py-0.5 text-[10px] bg-sky-100 text-sky-800 font-bold rounded-full">
-                          DOORSTEP
-                        </span>
+                        {isFreeDeliveryEligible ? (
+                          <span className="px-1.5 py-0.5 text-[10px] bg-emerald-100 text-emerald-800 font-bold rounded-full">
+                            FREE (ORDER &gt; ₹1000)
+                          </span>
+                        ) : (
+                          <span className="px-1.5 py-0.5 text-[10px] bg-sky-100 text-sky-800 font-bold rounded-full">
+                            DOORSTEP
+                          </span>
+                        )}
                       </p>
                       <p className="text-[11px] text-slate-500">
                         Delivered to your address
@@ -273,7 +320,11 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <span className="text-xs font-black text-slate-900">+₹40</span>
+                    {isFreeDeliveryEligible ? (
+                      <span className="text-xs font-black text-emerald-600">₹0 (FREE)</span>
+                    ) : (
+                      <span className="text-xs font-black text-slate-900">+₹40</span>
+                    )}
                   </div>
                 </button>
               </div>
@@ -286,10 +337,14 @@ const Cart = () => {
               </div>
               <div className="flex justify-between text-slate-600">
                 <span>Delivery Charge</span>
-                {deliveryFee === 0 ? (
-                  <span className="font-bold text-emerald-600">FREE (₹0)</span>
+                {deliveryOption === 'delivery' ? (
+                  deliveryFee === 0 ? (
+                    <span className="font-bold text-emerald-600">FREE (Order &gt; ₹1,000)</span>
+                  ) : (
+                    <span className="font-bold text-slate-900">+₹40 (Home Delivery)</span>
+                  )
                 ) : (
-                  <span className="font-bold text-slate-900">+₹40</span>
+                  <span className="font-bold text-emerald-600">FREE (Counter Pickup - ₹0)</span>
                 )}
               </div>
               <div className="flex justify-between text-slate-600">

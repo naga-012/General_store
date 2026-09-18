@@ -27,6 +27,7 @@ const Checkout = () => {
     grandTotal,
     deliveryOption,
     setDeliveryOption,
+    isFreeDeliveryEligible,
     clearCart,
   } = useCart();
   const { user } = useAuth();
@@ -211,12 +212,20 @@ const Checkout = () => {
                   <p className="text-xs text-slate-500 mt-0.5">
                     Delivered to your address
                   </p>
-                  <span className="inline-block mt-1 px-2 py-0.5 text-[10px] bg-sky-100 text-sky-800 font-bold rounded-full">
-                    FLAT DELIVERY FEE
-                  </span>
+                  {isFreeDeliveryEligible ? (
+                    <span className="inline-block mt-1 px-2 py-0.5 text-[10px] bg-emerald-100 text-emerald-800 font-bold rounded-full">
+                      FREE DELIVERY (ORDER &gt; ₹1000)
+                    </span>
+                  ) : (
+                    <span className="inline-block mt-1 px-2 py-0.5 text-[10px] bg-sky-100 text-sky-800 font-bold rounded-full">
+                      FLAT ₹40 (FREE ABOVE ₹1,000)
+                    </span>
+                  )}
                 </div>
               </div>
-              <span className="font-black text-sm text-slate-900 shrink-0">+₹40</span>
+              <span className={`font-black text-sm shrink-0 ${isFreeDeliveryEligible ? 'text-emerald-600' : 'text-slate-900'}`}>
+                {isFreeDeliveryEligible ? '₹0 (FREE)' : '+₹40'}
+              </span>
             </button>
           </div>
         </div>
@@ -412,10 +421,14 @@ const Checkout = () => {
             </div>
             <div className="flex justify-between text-sm text-slate-600">
               <span>Delivery Charge</span>
-              {deliveryFee === 0 ? (
-                <span className="font-bold text-emerald-600">FREE (Customer Pickup - ₹0)</span>
+              {deliveryOption === 'delivery' ? (
+                deliveryFee === 0 ? (
+                  <span className="font-bold text-emerald-600">FREE (Order &gt; ₹1,000)</span>
+                ) : (
+                  <span className="font-bold text-slate-900">+₹40 (Home Delivery)</span>
+                )
               ) : (
-                <span className="font-bold text-slate-900">+₹40 (Home Delivery)</span>
+                <span className="font-bold text-emerald-600">FREE (Customer Pickup - ₹0)</span>
               )}
             </div>
             <div className="flex justify-between items-baseline pt-3 border-t border-slate-200">
@@ -436,7 +449,9 @@ const Checkout = () => {
             <div className="space-y-2 w-full">
               <h3 className="font-bold text-sm sm:text-base text-slate-900">
                 {deliveryOption === 'delivery'
-                  ? 'Order Type: Home Delivery (+₹40 Delivery Charge)'
+                  ? deliveryFee === 0
+                    ? 'Order Type: Home Delivery (🎉 FREE Delivery on Orders > ₹1,000)'
+                    : 'Order Type: Home Delivery (+₹40 Delivery Charge)'
                   : 'Order Type: In-Store Counter Pickup (No Delivery Charge - FREE)'}
               </h3>
               <div className="bg-white/80 p-3 rounded-xl border border-amber-200/60 text-xs text-slate-700 space-y-1">

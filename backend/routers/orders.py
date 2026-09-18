@@ -88,7 +88,9 @@ async def create_order(
 
     order_id = await generate_order_id()
     is_delivery = req.orderType in ["delivery", "Home Delivery"]
-    delivery_fee = 40.0 if is_delivery else 0.0
+    # Free delivery on orders of ₹1,000 and above
+    FREE_DELIVERY_THRESHOLD = 1000.0
+    delivery_fee = 0.0 if (not is_delivery or subtotal >= FREE_DELIVERY_THRESHOLD) else 40.0
     grand_total = subtotal + delivery_fee
     now = datetime.utcnow()
 

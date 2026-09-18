@@ -230,7 +230,7 @@ const MyOrders = () => {
                     </h4>
                     <p className="text-xs sm:text-sm text-white/95 mt-1 leading-snug">
                       {selectedOrder.orderType === 'Home Delivery'
-                        ? `Your items are packed and being dispatched to: ${selectedOrder.customerAddress}. Delivery charge: ₹${selectedOrder.deliveryFee}.`
+                        ? `Your items are packed and being dispatched to: ${selectedOrder.customerAddress}. Delivery charge: ${selectedOrder.deliveryFee > 0 ? `₹${selectedOrder.deliveryFee}` : '₹0 (FREE Delivery)'}.`
                         : 'Your items are packed and ready at the store counter in Domalakunta, near govt school (No delivery charge).'}
                     </p>
                   </div>
@@ -326,8 +326,12 @@ const MyOrders = () => {
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Delivery Charge</span>
-                  {selectedOrder.deliveryFee > 0 ? (
-                    <span className="font-bold text-slate-900">+₹{selectedOrder.deliveryFee} (Home Delivery)</span>
+                  {selectedOrder.orderType === 'Home Delivery' ? (
+                    selectedOrder.deliveryFee > 0 ? (
+                      <span className="font-bold text-slate-900">+₹{selectedOrder.deliveryFee} (Home Delivery)</span>
+                    ) : (
+                      <span className="font-bold text-emerald-600">FREE (Home Delivery &gt; ₹1,000)</span>
+                    )
                   ) : (
                     <span className="font-bold text-emerald-600">FREE (Customer Pickup - ₹0)</span>
                   )}

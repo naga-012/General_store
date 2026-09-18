@@ -64,7 +64,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-3 text-xs">
             <span>📞 <a href="tel:+919573045430" className="hover:underline font-semibold">{settings?.phone || '+91 95730 45430'}</a></span>
-            <span className="text-amber-400 font-medium hidden xs:inline">⚡ Counter Pickup</span>
+            <span className="text-amber-300 font-bold hidden xs:inline">🛵 Free Delivery above ₹1,000</span>
           </div>
         </div>
       </div>
